@@ -7,6 +7,9 @@ public class PlayerMovementController : MonoBehaviour
     // Start is called before the first frame update
     public float Speed = 1.0f;
     public string inputHorizontalName;
+    public float sneakFactor;
+    public float sneakNoiseReduction;
+    public KeyCode sneakButton;
     public string inputVerticalName;
     SimpleRigidbody collisionHandler;
     NoiseManager noiseSystem;
@@ -26,10 +29,11 @@ public class PlayerMovementController : MonoBehaviour
         input.Normalize();
         if(!IsInteractingWithComputer)
         {
-            collisionHandler.SetVelocity(input * Speed);
+            if (Input.GetKey(sneakButton)) { collisionHandler.SetVelocity((input * Speed) / sneakFactor); }
+            else { collisionHandler.SetVelocity(input * Speed); }
             if (collisionHandler.GetVelocity() != Vector2.zero)
             {
-                noiseSystem.AddNoise(transform.position, footStepsNoise);
+                noiseSystem.AddNoise(transform.position, footStepsNoise - sneakNoiseReduction);
             }
         }
     }

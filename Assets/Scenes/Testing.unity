@@ -201,6 +201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 10
   inputHorizontalName: Horizontal
+  sneakFactor: 1.5
+  sneakButton: 304
   inputVerticalName: Vertical
   footStepsNoise: 5
 --- !u!212 &183457825
@@ -403,6 +405,7 @@ MonoBehaviour:
         m_CallState: 2
   DisablePlayer1: 0
   DisablePlayer2: 0
+  Interacting: 0
 --- !u!212 &698657679
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -572,6 +575,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 10
   inputHorizontalName: HorizontalPlayer2
+  sneakFactor: 0
+  sneakButton: 0
   inputVerticalName: VerticalPlayer2
   footStepsNoise: 5
 --- !u!212 &746579005
