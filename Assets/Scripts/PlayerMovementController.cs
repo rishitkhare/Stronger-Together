@@ -11,6 +11,8 @@ public class PlayerMovementController : MonoBehaviour
     SimpleRigidbody collisionHandler;
     NoiseManager noiseSystem;
     public float footStepsNoise;
+    [HideInInspector]
+    public bool IsInteractingWithComputer { get; set; }
     void Start()
     {
         collisionHandler = gameObject.GetComponent<SimpleRigidbody>();
@@ -22,10 +24,13 @@ public class PlayerMovementController : MonoBehaviour
     {
         Vector2 input = new Vector2(Input.GetAxisRaw(inputHorizontalName), Input.GetAxisRaw(inputVerticalName));
         input.Normalize();
-        collisionHandler.SetVelocity(input * Speed);
-        if(collisionHandler.GetVelocity() != Vector2.zero)
+        if(!IsInteractingWithComputer)
         {
-            noiseSystem.AddNoise(transform.position, footStepsNoise);
+            collisionHandler.SetVelocity(input * Speed);
+            if (collisionHandler.GetVelocity() != Vector2.zero)
+            {
+                noiseSystem.AddNoise(transform.position, footStepsNoise);
+            }
         }
     }
 }

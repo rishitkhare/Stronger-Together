@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+public class InteractionEvent : UnityEvent<GameObject> { }
 public class Interactable : MonoBehaviour
 {
     bool IsInteracting;
@@ -11,21 +11,22 @@ public class Interactable : MonoBehaviour
     public KeyCode Player1InteractionKey;
     public KeyCode Player2InteractionKey;
     public float MaxDist;
-    public UnityEvent OnInteracted;
+    public UnityEvent<GameObject> OnInteracted;
     public bool DisablePlayer1;
     public bool DisablePlayer2;
+    public bool Interacting;
     void Start()
     {
         if(OnInteracted == null)
         {
-            OnInteracted = new UnityEvent();
+            OnInteracted = new InteractionEvent();
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        CheckInteractions();
+        if (!Interacting) { CheckInteractions(); }
     }
 
     void CheckInteractions()
@@ -33,7 +34,7 @@ public class Interactable : MonoBehaviour
         float dist1 = 0; float dist2 = 0;
         if (!DisablePlayer1) { dist1 = (GameObject.Find(Player1ObjectName).transform.position - transform.position).magnitude; }
         if (!DisablePlayer2) { dist2 = (GameObject.Find(Player2ObjectName).transform.position - transform.position).magnitude; }
-        if (!DisablePlayer1 && Input.GetKeyDown(Player1InteractionKey) && dist1 < MaxDist) { OnInteracted.Invoke(); }
-        if (!DisablePlayer2 && Input.GetKeyDown(Player2InteractionKey) && dist2 < MaxDist) { OnInteracted.Invoke(); }
+        if (!DisablePlayer1 && Input.GetKeyDown(Player1InteractionKey) && dist1 < MaxDist) { OnInteracted.Invoke(GameObject.Find(Player1ObjectName)); }
+        if (!DisablePlayer2 && Input.GetKeyDown(Player2InteractionKey) && dist2 < MaxDist) { OnInteracted.Invoke(GameObject.Find(Player2ObjectName)); }
     }
 }
