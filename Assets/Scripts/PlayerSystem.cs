@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerSystem : MonoBehaviour
 {
-    private string ItemHolding;
+    private List<string> Inventory;
     public string otherPlayerName;
     void Start()
     {
-        
+        Inventory = new List<string>();
     }
 
     // Update is called once per frame
@@ -21,4 +21,7 @@ public class PlayerSystem : MonoBehaviour
     {
 
     }
+
+    public void addItem(string item) { Inventory.Add(item); }
+    public List<string> getInventory() { return Inventory; }
 }
