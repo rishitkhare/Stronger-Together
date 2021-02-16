@@ -13,6 +13,6 @@ public class TopDownLayering : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        sp.sortingOrder = -4 * (orderInLayer + (int) transform.position.y);
+        sp.sortingOrder = (int)(-8 * (orderInLayer + transform.position.y));
     }
 }

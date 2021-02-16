@@ -12,14 +12,12 @@ public class PlayerMovementController : MonoBehaviour
     public KeyCode sneakButton;
     public string inputVerticalName;
     SimpleRigidbody collisionHandler;
-    NoiseManager noiseSystem;
     public float footStepsNoise;
     [HideInInspector]
     public bool IsInteractingWithComputer { get; set; }
     void Start()
     {
         collisionHandler = gameObject.GetComponent<SimpleRigidbody>();
-        noiseSystem = GameObject.Find("NoiseManager").gameObject.GetComponent<NoiseManager>();
     }
 
     // Update is called once per frame
@@ -33,7 +31,7 @@ public class PlayerMovementController : MonoBehaviour
             else { collisionHandler.SetVelocity(input * Speed); }
             if (collisionHandler.GetVelocity() != Vector2.zero)
             {
-                noiseSystem.AddNoise(transform.position, footStepsNoise - sneakNoiseReduction);
+                
             }
         }
     }

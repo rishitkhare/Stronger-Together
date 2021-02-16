@@ -108,7 +108,7 @@ public class SimpleRigidbody : MonoBehaviour {
         return grounded;
     }
 
-    private float RaycastXCollision(float deltaX) {
+    public float RaycastXCollision(float deltaX) {
         //finds center of collider
         Vector2 colliderCenterPos = transform.position;
         colliderCenterPos.x += myCollider.offset.x;
@@ -145,7 +145,7 @@ public class SimpleRigidbody : MonoBehaviour {
         return Mathf.Sign(velocity) * 0.5f * value;
     }
 
-    private float RaycastYCollision(float deltaY) {
+    public float RaycastYCollision(float deltaY) {
         //finds center of collider
         Vector2 colliderCenterPos = transform.position;
         colliderCenterPos.x += myCollider.offset.x;
