@@ -24,7 +24,7 @@ public class CameraHandler : MonoBehaviour
             {
                 if(currentAngle < maxDeviationFromCenter)
                 {
-                    if (currentAngle + rotationSpeed > maxDeviationFromCenter) { currentAngle = maxDeviationFromCenter; }
+                    if (currentAngle + (rotationSpeed * Time.deltaTime) > maxDeviationFromCenter) { currentAngle = maxDeviationFromCenter; }
                     else { currentAngle += rotationSpeed * Time.deltaTime; }
                 }
             }
@@ -33,7 +33,7 @@ public class CameraHandler : MonoBehaviour
             {
                 if (currentAngle > maxDeviationFromCenter * -1)
                 {
-                    if (currentAngle - rotationSpeed < -1 * maxDeviationFromCenter) { currentAngle = -1 * maxDeviationFromCenter; }
+                    if (currentAngle - (rotationSpeed * Time.deltaTime) < -1 * maxDeviationFromCenter) { currentAngle = -1 * maxDeviationFromCenter; }
                     else { currentAngle -= rotationSpeed * Time.deltaTime; }
                 }
             }
