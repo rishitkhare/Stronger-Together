@@ -123,50 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &413679990
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 413679992}
-  - component: {fileID: 413679991}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &413679991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413679990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 918f15f3e943d440e9bebbcb0af10824, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds: []
---- !u!4 &413679992
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 413679990}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &771112010
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +135,7 @@ GameObject:
   - component: {fileID: 771112013}
   - component: {fileID: 771112012}
   - component: {fileID: 771112011}
+  - component: {fileID: 771112015}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -342,6 +299,166 @@ Transform:
   m_GameObject: {fileID: 771112010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &771112015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771112010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+--- !u!1 &1093127917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1093127919}
+  - component: {fileID: 1093127918}
+  m_Layer: 0
+  m_Name: AudioManager (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1093127918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093127917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 918f15f3e943d440e9bebbcb0af10824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Menu Theme
+    clip: {fileID: 8300000, guid: 6e6543b892c3a48a8beda4d82d72b32b, type: 3}
+    volume: 0
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Alert
+    clip: {fileID: 8300000, guid: de7e290c410c44417834671ab65ab462, type: 3}
+    volume: 0
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Button
+    clip: {fileID: 8300000, guid: 2fa2e6cd1f605454382d6fd899da9551, type: 3}
+    volume: 0
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Chandelier
+    clip: {fileID: 8300000, guid: 375c9e660426b446d8344db9c539fd90, type: 3}
+    volume: 0
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Climbing Upstairs
+    clip: {fileID: 8300000, guid: 1dd1b9694e0884bf08e27f8e9e0d6341, type: 3}
+    volume: 0
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Drag
+    clip: {fileID: 8300000, guid: b4c81df3406ec4286a95abf5d4de29d9, type: 3}
+    volume: 0
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Footsteps
+    clip: {fileID: 8300000, guid: 097594cb0b5ae401eb6006e475fb2481, type: 3}
+    volume: 0
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Hack
+    clip: {fileID: 8300000, guid: 025bd055039e1424d8aef928d755095b, type: 3}
+    volume: 0
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Open_Close Door
+    clip: {fileID: 8300000, guid: d33c0a1f20dab4496b1d64b7d41b0915, type: 3}
+    volume: 0
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Pickpocket
+    clip: {fileID: 8300000, guid: 14e51925f24594a298f4ab8629b4880c, type: 3}
+    volume: 0
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Shoot
+    clip: {fileID: 8300000, guid: 96383a80ffac44b55809a1cd1559f5f5, type: 3}
+    volume: 0
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Whir
+    clip: {fileID: 8300000, guid: 5e8e54840e5844d0b9de6b607500f562, type: 3}
+    volume: 0
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Zap
+    clip: {fileID: 8300000, guid: c861fd90394ed45e8af967553f0dba64, type: 3}
+    volume: 0
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+  - name: Punch
+    clip: {fileID: 8300000, guid: 96383a80ffac44b55809a1cd1559f5f5, type: 3}
+    volume: 0
+    pitch: 0.1
+    loop: 0
+    source: {fileID: 0}
+--- !u!4 &1093127919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093127917}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
