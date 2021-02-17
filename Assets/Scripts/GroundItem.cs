@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class GroundItem : MonoBehaviour
 {
+    public enum Type { KeyCard, Body}
+    public Type myType;
     public string id;
+    private GameObject bodyController;
+    private bool IsBeingControlled;
     void Start()
     {
         gameObject.SetActive(true);
@@ -18,7 +22,14 @@ public class GroundItem : MonoBehaviour
 
     public void OnInteracted(GameObject other)
     {
-        other.gameObject.GetComponent<PlayerSystem>().addItem(id);
-        gameObject.SetActive(false);
+        if(myType == Type.KeyCard)
+        {
+            other.gameObject.GetComponent<PlayerSystem>().addItem(id);
+            gameObject.SetActive(false);
+        }
+        else if(myType == Type.Body)
+        {
+            
+        }
     }
 }

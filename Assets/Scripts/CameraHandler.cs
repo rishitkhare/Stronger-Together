@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using System;
 
 public class CameraHandler : MonoBehaviour
 {
@@ -8,7 +10,12 @@ public class CameraHandler : MonoBehaviour
     public float maxDeviationFromCenter;
     public float rotationSpeed;
     public float center;
+    public float FOVAngle;
+    public float innerRadius;
+    public LayerMask wallLayer;
     private float currentAngle;
+    public List<GameObject> blackList;
+    public UnityEvent<GameObject> onDetected;
 
     private Transform childTransform;
 
@@ -16,7 +23,6 @@ public class CameraHandler : MonoBehaviour
     private readonly int isControllingAnimatorHash = Animator.StringToHash("IsControlling");
 
     private Animator anim;
-
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -48,10 +54,30 @@ public class CameraHandler : MonoBehaviour
                 }
             }
         }
-
+        foreach (GameObject obj in blackList)
+        {
+            if (checkIfPlayerCollides(obj)) { onDetected.Invoke(obj); }
+        }
         childTransform.rotation = Quaternion.AngleAxis(center + currentAngle, Vector3.forward);
 
         anim.SetFloat(currentAngleAnimatorHash, center + currentAngle);
         anim.SetBool(isControllingAnimatorHash, playerIsControlling);
+    }
+
+    public bool checkIfPlayerCollides(GameObject obj)
+    {
+        bool detected = false;
+        Vector2 PlayerPos = new Vector2(obj.transform.position.x, obj.transform.position.y);
+        Vector2 myPos = new Vector2(transform.position.x, transform.position.y);
+        float nonRelativeAngle = center + currentAngle;
+        Vector2 cameraVec = new Vector2(Mathf.Cos(nonRelativeAngle), Mathf.Sin(nonRelativeAngle));
+        Vector2 playerVec = new Vector2(PlayerPos.x - myPos.x, PlayerPos.y - myPos.y);
+        float angleBetween = Mathf.Acos(((cameraVec.x * playerVec.x) + (cameraVec.y * playerVec.y)) / (cameraVec.magnitude * playerVec.magnitude));
+        RaycastHit2D hit = Physics2D.Raycast(myPos, playerVec, playerVec.magnitude - 1.5f, wallLayer);
+        if(angleBetween < FOVAngle/2 && !hit && playerVec.magnitude < innerRadius)
+        {
+            detected = true;
+        }
+        return detected;
     }
 }
