@@ -7,7 +7,6 @@ public class Interactable : MonoBehaviour
 {
     public enum EventTrigger { Key, Collision}
     public EventTrigger myTriggerMethod;
-    bool IsInteracting;
     public string Player1ObjectName;
     public string Player2ObjectName;
     public KeyCode Player1InteractionKey;
@@ -18,7 +17,7 @@ public class Interactable : MonoBehaviour
     public UnityEvent<GameObject> OnInteracted;
     [HideInInspector]
     public bool Interacting;
-    void Start()
+    public virtual void Start()
     {
         if(OnInteracted == null)
         {
@@ -27,7 +26,7 @@ public class Interactable : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         if (!Interacting) { CheckInteractions(); }
     }

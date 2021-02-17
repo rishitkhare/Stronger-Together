@@ -103,6 +103,10 @@ public class EnemyScript : MonoBehaviour
     {
         float strength;
         bool heard = CalculateIfHeard(noise, out strength);
+        if(heard)
+        {
+            performAction(noise, strength);
+        }
     }
     
     private bool CalculateIfHeard(Vector3 noise, out float strength)
