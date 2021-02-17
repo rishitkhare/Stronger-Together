@@ -51,7 +51,7 @@ public class CameraHandler : MonoBehaviour
 
         childTransform.rotation = Quaternion.AngleAxis(center + currentAngle, Vector3.forward);
 
-        anim.SetFloat(currentAngleAnimatorHash, -(currentAngle - maxDeviationFromCenter) / (maxDeviationFromCenter / 5f));
+        anim.SetFloat(currentAngleAnimatorHash, center + currentAngle);
         anim.SetBool(isControllingAnimatorHash, playerIsControlling);
     }
 }
