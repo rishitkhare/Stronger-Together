@@ -16,7 +16,7 @@ public class PlayerMovementController : MonoBehaviour
     Animator anim;
     SpriteRenderer sp;
 
-    Vector2 direction;
+    Vector2 direction = Vector2.down;
 
     #region AnimatorHashes
     //optimizing the animator

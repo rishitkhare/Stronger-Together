@@ -16,9 +16,18 @@ public class CameraHandler : MonoBehaviour
     private float currentAngle;
     public List<GameObject> blackList;
     public UnityEvent<GameObject> onDetected;
+
+    private Transform childTransform;
+
+    private readonly int currentAngleAnimatorHash = Animator.StringToHash("Angle");
+    private readonly int isControllingAnimatorHash = Animator.StringToHash("IsControlling");
+
+    private Animator anim;
     void Start()
     {
-        transform.rotation = Quaternion.AngleAxis(center, Vector3.forward);
+        anim = gameObject.GetComponent<Animator>();
+        childTransform = transform.GetChild(0);
+        childTransform.rotation = Quaternion.AngleAxis(center, Vector3.forward);
         currentAngle = 0;
     }
 
@@ -31,7 +40,7 @@ public class CameraHandler : MonoBehaviour
             {
                 if(currentAngle < maxDeviationFromCenter)
                 {
-                    if (currentAngle + rotationSpeed > maxDeviationFromCenter) { currentAngle = maxDeviationFromCenter; }
+                    if (currentAngle + (rotationSpeed * Time.deltaTime) > maxDeviationFromCenter) { currentAngle = maxDeviationFromCenter; }
                     else { currentAngle += rotationSpeed * Time.deltaTime; }
                 }
             }
@@ -40,16 +49,19 @@ public class CameraHandler : MonoBehaviour
             {
                 if (currentAngle > maxDeviationFromCenter * -1)
                 {
-                    if (currentAngle - rotationSpeed < -1 * maxDeviationFromCenter) { currentAngle = -1 * maxDeviationFromCenter; }
+                    if (currentAngle - (rotationSpeed * Time.deltaTime) < -1 * maxDeviationFromCenter) { currentAngle = -1 * maxDeviationFromCenter; }
                     else { currentAngle -= rotationSpeed * Time.deltaTime; }
                 }
             }
-            transform.rotation = Quaternion.AngleAxis(center + currentAngle, Vector3.forward);
         }
         foreach (GameObject obj in blackList)
         {
             if (checkIfPlayerCollides(obj)) { onDetected.Invoke(obj); }
         }
+        childTransform.rotation = Quaternion.AngleAxis(center + currentAngle, Vector3.forward);
+
+        anim.SetFloat(currentAngleAnimatorHash, -(currentAngle - maxDeviationFromCenter) / (maxDeviationFromCenter / 5f));
+        anim.SetBool(isControllingAnimatorHash, playerIsControlling);
     }
 
     public bool checkIfPlayerCollides(GameObject obj)
