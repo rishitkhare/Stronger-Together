@@ -8,10 +8,12 @@ using System.Linq;
 public class CameraHandler : MonoBehaviour
 {
     public bool playerIsControlling { get; set; }
-
+    public List<string> clothingToAlert;
     public float maxDeviationFromCenter;
     public float rotationSpeed;
     public float center;
+    public string Player1;
+    public string Player2;
 
     //public float FOVAngle;
     //public float innerRadius;
@@ -35,6 +37,9 @@ public class CameraHandler : MonoBehaviour
 
     public UnityEvent OnDetected;
 
+    private GameObject player1;
+    private GameObject player2;
+
 
     void Start()
     {
@@ -48,6 +53,8 @@ public class CameraHandler : MonoBehaviour
             .transform.Find("CameraCollider").GetComponent<BoxCollider2D>();
 
         SpotlightTrigger = SpotlightTriggerGameObject.GetComponent<Collider2D>();
+        player1 = GameObject.Find(Player1);
+        player2 = GameObject.Find(Player2);
     }
 
     // Update is called once per frame
@@ -73,7 +80,6 @@ public class CameraHandler : MonoBehaviour
                 }
             }
         }
-        if (CheckIfPlayerCollides()) { }
 
 
         SpotlightTriggerGameObject.transform.rotation = Quaternion.AngleAxis(center + currentAngle, Vector3.forward);
@@ -98,7 +104,10 @@ public class CameraHandler : MonoBehaviour
 
         foreach(Vector2 point in Player1ColliderVertices) {
             if(SpotlightTrigger.OverlapPoint(point) && VisionToPointNotObstructed(point)) {
-                return true;
+                if(clothingToAlert.Contains(player1.gameObject.GetComponent<PlayerScript>().wearing()))
+                {
+                    return true;
+                }
             }
         }
 
@@ -106,7 +115,10 @@ public class CameraHandler : MonoBehaviour
 
         foreach(Vector2 point in Player2ColliderVertices) {
             if(SpotlightTrigger.OverlapPoint(point) && VisionToPointNotObstructed(point)) {
-                return true;
+                if (clothingToAlert.Contains(player2.gameObject.GetComponent<PlayerScript>().wearing()))
+                {
+                    return true;
+                }
             }
         }
 
