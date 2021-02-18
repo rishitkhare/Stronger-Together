@@ -8,6 +8,8 @@ public class Dialogue {
     //speaker name
     public string name;
 
+    public Sprite portrait;
+
     [TextArea(3, 10)]
     public string[] sentences;
 
