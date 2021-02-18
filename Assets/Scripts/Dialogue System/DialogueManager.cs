@@ -8,9 +8,11 @@ public class DialogueManager : MonoBehaviour {
     //speaker and dialogue
     public Text nameText;
     public Text dialogueText;
+    public Sprite portraitSprite;
 
     // "IsOpen" is parameter controlling whether or not 
     // the dialogue box is open
+    //"Speaking" parameter indicates whether still typing or not --> if not typing, animate the arrow thing on the box
     public Animator animator;
 
     private Queue<string> sentences;
@@ -21,29 +23,38 @@ public class DialogueManager : MonoBehaviour {
 
     }
 
-    public void StartDialogue(Dialogue dialogue) {
+    public void StartDialogue(Dialogue[] dialogue) {
 
-        animator.SetBool("IsOpen", true);
+        foreach (Dialogue dialog in dialogue) {
 
-        nameText.text = dialogue.name;
+            animator.SetBool("DialogueIsOpen", true);
+            animator.SetBool("DialogueIsSpeaking", true);
 
-        sentences.Clear();
+            nameText.text = dialog.name;
 
-        foreach (string sentence in dialogue.sentences) {
+            portraitSprite = dialog.portrait;
 
-            sentences.Enqueue(sentence);
+            sentences.Clear();
 
+            foreach (string sentence in dialog.sentences)
+            {
+
+                sentences.Enqueue(sentence);
+
+            }
+
+            DisplayNextSentence();
         }
-
-        DisplayNextSentence();
-
     }
 
     public void DisplayNextSentence() {
 
+        // starting new sentence, arrow clicker begone
+        animator.SetBool("Speaking", true);
+
         if (sentences.Count == 0) {
 
-            EndDialogue();
+            CloseDialogueBox();
             return;
 
         }
@@ -60,15 +71,25 @@ public class DialogueManager : MonoBehaviour {
         foreach (char letter in sentence.ToCharArray()) {
 
             dialogueText.text += letter;
+
             yield return null;
 
         }
+        // I'm not sure how yield works but basically end speaking after typing is done
+        EndSpeaking();
 
     }
 
-    void EndDialogue() {
+    void EndSpeaking() {
 
-        animator.SetBool("IsOpen", false);
+        animator.SetBool("DialogueIsSpeaking", false);
+
+    }
+
+    void CloseDialogueBox () {
+
+        EndSpeaking();
+        animator.SetBool("DialogueIsOpen", false);
 
     }
 
