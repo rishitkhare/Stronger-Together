@@ -21,10 +21,6 @@ public class DoorButton : MonoBehaviour
 
     public void OnInteracted(GameObject other)
     {
-        if (other.gameObject.GetComponent<PlayerSystem>().getInventory().Contains("KeyCard"))
-        {
-            other.gameObject.GetComponent<PlayerSystem>().getInventory().Remove("KeyCard");
-            opened.Invoke();
-        }
+        
     }
 }
