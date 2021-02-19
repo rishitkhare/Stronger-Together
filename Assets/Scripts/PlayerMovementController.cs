@@ -79,6 +79,9 @@ public class PlayerMovementController : MonoBehaviour
             anim.SetFloat(DirectionXHash, direction.x);
             anim.SetFloat(DirectionYHash, direction.y);
         }
+        else {
+            anim.SetBool(isMovingHash, true);
+        }
 
         if(direction.x > 0)
         {
