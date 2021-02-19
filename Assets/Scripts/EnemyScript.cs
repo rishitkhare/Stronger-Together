@@ -12,12 +12,14 @@ public class EnemyScript : MonoBehaviour
     public float maxDistToWalls;
     public List<Vector2> PreProgrammedPath;
     public Vector2 LineOfSightWidthLength;
+    public int waitFrames;
     private Vector3 currentPathFind;
     private Vector3 currentDir;
     private Vector3 prevDir;
     private bool routine;
     private int routineStage;
     private int routineDir;
+    private int currentWaitFrame;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,26 +38,35 @@ public class EnemyScript : MonoBehaviour
             currentPathFind = new Vector3(PreProgrammedPath[1].x, PreProgrammedPath[1].y, 0);
         }
         routine = true;
+        currentWaitFrame = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (((int)currentPathFind.x != (int)transform.position.x || (int)currentPathFind.y != (int)transform.position.y))
+        if ((((int)currentPathFind.x != (int)transform.position.x || (int)currentPathFind.y != (int)transform.position.y)) && currentWaitFrame == 0)
         {
             Pathfind();
         }
-        else if (routine)
+        else if (routine && currentWaitFrame == 0)
         {
             if (PreProgrammedPath.Count > 1)
             {
-                if (routineStage == PreProgrammedPath.Count - 1) { routineDir = -1; }
-                else if (routineStage == 0) { routineDir = 1; }
-                routineStage += routineDir;
+                if(routineStage == PreProgrammedPath.Count - 1)
+                {
+                    routineStage = 0;
+                }
+                else
+                {
+                    routineStage++;
+                    currentWaitFrame = waitFrames;
+                }
                 currentPathFind = new Vector3(PreProgrammedPath[routineStage].x, PreProgrammedPath[routineStage].y, 0);
             }
         }
-        else { currentPathFind = homePosition; routine = true; routineStage = 1; }
+        else if(currentWaitFrame == 0) { currentPathFind = homePosition; routine = true; routineStage = 1; }
+
+        if (currentWaitFrame > 0) { currentWaitFrame--; }
     }
 
     void Pathfind()
@@ -70,33 +81,33 @@ public class EnemyScript : MonoBehaviour
         int pathY = (int)currentPathFind.y;
         if(currentDir == Vector3.zero)
         {
-            if (canGoRight && myPosX < pathX) { currentDir = new Vector3(speed, 0, 0); }
-            else if (canGoLeft && myPosX > pathX) { currentDir = new Vector3(speed * -1, 0, 0); }
+            if (canGoRight && (myPosX < pathX || ((myPosY < pathY && !canGoUp) && (myPosY > pathY && !canGoDown)))) 
+                { currentDir = new Vector3(speed, 0, 0); }
+            else if (canGoLeft && (myPosX > pathX || ((myPosY < pathY && !canGoUp) && (myPosY > pathY && !canGoDown)))) 
+                { currentDir = new Vector3(speed * -1, 0, 0); }
             else if (canGoUp && (myPosY < pathY || myPosX != pathX)) { currentDir = new Vector3(0, speed, 0); }
             else if (canGoDown && (myPosY > pathY || myPosX != pathX)) { currentDir = new Vector3(0, speed * -1, 0); }
         }
         else if(currentDir == new Vector3(speed, 0, 0) && (!canGoRight || myPosX >= pathX))
         {
             if (!canGoRight) { currentDir = Vector3.zero; }
-            else if ((canGoUp && myPosY < pathY) || (canGoDown && myPosY > pathY)) { currentDir = Vector3.zero; }
+            else if ((canGoUp && myPosY <= pathY) || (canGoDown && myPosY >= pathY)) { currentDir = Vector3.zero; }
         }
         else if (currentDir == new Vector3(speed * -1, 0, 0) && (!canGoLeft || myPosX <= pathX))
         {
             if (!canGoLeft) { currentDir = Vector3.zero; }
-            else if ((canGoUp && myPosY < pathY) || (canGoDown && myPosY > pathY)) { currentDir = Vector3.zero; }
+            else if ((canGoUp && myPosY <= pathY) || (canGoDown && myPosY >= pathY)) { currentDir = Vector3.zero; }
         }
         else if (currentDir == new Vector3(0, speed, 0) && (!canGoUp || myPosY >= pathY))
         {
             if (!canGoUp) { currentDir = Vector3.zero; }
-            else if ((canGoRight && myPosX < pathX) || (canGoLeft && myPosX > pathX)) { currentDir = Vector3.zero; }
+            else if ((canGoRight && myPosX <= pathX) || (canGoLeft && myPosX >= pathX)) { currentDir = Vector3.zero; }
         }
         else if (currentDir == new Vector3(0, speed * -1, 0) && (!canGoDown || myPosY <= pathY))
         {
             if (!canGoDown) { currentDir = Vector3.zero; }
-            else if ((canGoRight && myPosX < pathX) || (canGoLeft && myPosX > pathX)) { currentDir = Vector3.zero; }
+            else if ((canGoRight && myPosX <= pathX) || (canGoLeft && myPosX >= pathX)) { currentDir = Vector3.zero; }
         }
-
-        //each one: if current direction, and (can't move or shouldn't move) then if(can'tmove) and then if(can move but shouldn't and can in other dir)
         transform.position += currentDir * Time.deltaTime;
     }
 
@@ -104,6 +115,7 @@ public class EnemyScript : MonoBehaviour
     {
         float strength;
         bool heard = CalculateIfHeard(noise, out strength);
+        Debug.Log(heard + "," + strength);
         if(heard)
         {
             performAction(noise, strength, cause);
@@ -125,7 +137,7 @@ public class EnemyScript : MonoBehaviour
 
     private void performAction(Vector3 noise, float strength, GameObject source)
     {
-        if(currentPathFind.z < strength && source.GetComponent<PlayerScript>().wearing() == "spy")
+        if(currentPathFind.z <= strength && source.GetComponent<PlayerScript>().wearing() == "spy")
         {
             currentPathFind = new Vector3(noise.x, noise.y, strength);
             routine = false;
