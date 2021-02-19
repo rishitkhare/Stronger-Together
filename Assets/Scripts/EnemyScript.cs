@@ -16,10 +16,8 @@ public class EnemyScript : MonoBehaviour
     public List<string> clothingToAlert;
     private Vector3 currentPathFind;
     private Vector3 currentDir;
-    private Vector3 prevDir;
     private bool routine;
     private int routineStage;
-    private int routineDir;
     private int currentWaitFrame;
     private PolygonCollider2D myLineOfSight;
     private BoxCollider2D Player1Col;
@@ -30,10 +28,8 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<SimpleRigidbody>();
-        routineDir = 1;
         currentPathFind = new Vector3(homePosition.x, homePosition.y, 0);
         currentDir = new Vector3(0, 0, 0);
-        prevDir = new Vector3(0, 0, 0);
         if(PreProgrammedPath == null)
         {
             PreProgrammedPath = new List<Vector2>();
