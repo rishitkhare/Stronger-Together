@@ -1,43 +1,40 @@
 fileFormatVersion: 2
-guid: dd3018ea1f28f1849a29c3c24bb3f87e
+guid: 2425a1e80d3c4624b860cf79ffd531fc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5029473837409850693
-    second: Side Elevator_0
+      213: -8267445248990406363
+    second: Green Elevator Side_0
   - first:
-      213: 2927712479961119793
-    second: Side Elevator_1
+      213: 2758843933892272987
+    second: Green Elevator Side_1
   - first:
-      213: 1324113364876584322
-    second: Side Elevator_2
+      213: 7554440976032620613
+    second: Green Elevator Side_2
   - first:
-      213: -5829057448042903284
-    second: Side Elevator_3
+      213: 3582026056767999868
+    second: Green Elevator Side_3
   - first:
-      213: -4670424486760588223
-    second: Side Elevator_4
+      213: 1491422665880078088
+    second: Green Elevator Side_4
   - first:
-      213: -2806804104289107580
-    second: Side Elevator_5
+      213: 2626372547666626842
+    second: Green Elevator Side_5
   - first:
-      213: -4885541519268960716
-    second: Side Elevator_6
+      213: -1355772401734024699
+    second: Green Elevator Side_6
   - first:
-      213: -6538228613670863407
-    second: Side Elevator_7
+      213: -8665415640944864197
+    second: Green Elevator Side_7
   - first:
-      213: 7642516144841760877
-    second: Side Elevator_8
+      213: -8073350117658619860
+    second: Green Elevator Side_8
   - first:
-      213: 645519928783250810
-    second: Side Elevator_9
+      213: -8448477226191992854
+    second: Green Elevator Side_9
   - first:
-      213: 5226980494226412714
-    second: Side Elevator_10
-  - first:
-      213: 6493506000373570253
-    second: Side Elevator_11
+      213: -3631170497977185233
+    second: Green Elevator Side_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -151,28 +148,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Side Elevator_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5455fedcec74cc540800000000000000
-      internalID: 5029473837409850693
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Side Elevator_1
+      name: Green Elevator Side_0
       rect:
         serializedVersion: 2
         x: 16
@@ -186,14 +162,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13c7f842df251a820800000000000000
-      internalID: 2927712479961119793
+      spriteID: 5299fed4952244d80800000000000000
+      internalID: -8267445248990406363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Side Elevator_2
+      name: Green Elevator Side_1
       rect:
         serializedVersion: 2
         x: 32
@@ -207,14 +183,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 285e0d30712306210800000000000000
-      internalID: 1324113364876584322
+      spriteID: b53e36ed0f1694620800000000000000
+      internalID: 2758843933892272987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Side Elevator_3
+      name: Green Elevator Side_2
       rect:
         serializedVersion: 2
         x: 48
@@ -228,14 +204,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c09ce0a72270b1fa0800000000000000
-      internalID: -5829057448042903284
+      spriteID: 5406415ea04c6d860800000000000000
+      internalID: 7554440976032620613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Side Elevator_4
+      name: Green Elevator Side_3
       rect:
         serializedVersion: 2
         x: 0
@@ -249,14 +225,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14c595c9ca15f2fb0800000000000000
-      internalID: -4670424486760588223
+      spriteID: c7f89d168b9e5b130800000000000000
+      internalID: 3582026056767999868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Side Elevator_5
+      name: Green Elevator Side_4
       rect:
         serializedVersion: 2
         x: 16
@@ -270,14 +246,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4814db9c98a3c09d0800000000000000
-      internalID: -2806804104289107580
+      spriteID: 8078fb1430992b410800000000000000
+      internalID: 1491422665880078088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Side Elevator_6
+      name: Green Elevator Side_5
       rect:
         serializedVersion: 2
         x: 32
@@ -291,14 +267,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4362d887fd1133cb0800000000000000
-      internalID: -4885541519268960716
+      spriteID: a19c18fbaefb27420800000000000000
+      internalID: 2626372547666626842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Side Elevator_7
+      name: Green Elevator Side_6
       rect:
         serializedVersion: 2
         x: 48
@@ -312,14 +288,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1dd7ad587bb8345a0800000000000000
-      internalID: -6538228613670863407
+      spriteID: 5028d5e0f245f2de0800000000000000
+      internalID: -1355772401734024699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Side Elevator_8
+      name: Green Elevator Side_7
       rect:
         serializedVersion: 2
         x: 0
@@ -333,14 +309,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d602b7321fbaf0a60800000000000000
-      internalID: 7642516144841760877
+      spriteID: b341e5ac2624eb780800000000000000
+      internalID: -8665415640944864197
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Side Elevator_9
+      name: Green Elevator Side_8
       rect:
         serializedVersion: 2
         x: 16
@@ -354,14 +330,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a75af8284f855f800800000000000000
-      internalID: 645519928783250810
+      spriteID: c209999a7d2b5ff80800000000000000
+      internalID: -8073350117658619860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Side Elevator_10
+      name: Green Elevator Side_9
       rect:
         serializedVersion: 2
         x: 32
@@ -375,14 +351,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa4d246d017f98840800000000000000
-      internalID: 5226980494226412714
+      spriteID: ae749d789baf0ca80800000000000000
+      internalID: -8448477226191992854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Side Elevator_11
+      name: Green Elevator Side_10
       rect:
         serializedVersion: 2
         x: 48
@@ -396,8 +372,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dca5223ad419d1a50800000000000000
-      internalID: 6493506000373570253
+      spriteID: f2c013dbbad7b9dc0800000000000000
+      internalID: -3631170497977185233
       vertices: []
       indices: 
       edges: []

@@ -1,43 +1,43 @@
 fileFormatVersion: 2
-guid: e0997fd7abf484ceaac66761fcee4daf
+guid: 59a0a8f6627e8834c9003b9631f5fb1d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8103168948674493137
-    second: Elevator_0
+      213: -3546656634777540582
+    second: Purple Elevator_0
   - first:
-      213: -4283303606457170795
-    second: Elevator_1
+      213: 7306158542978178678
+    second: Purple Elevator_1
   - first:
-      213: -5351426994066200602
-    second: Elevator_2
+      213: -498051512790647146
+    second: Purple Elevator_2
   - first:
-      213: 1112482287800844133
-    second: Elevator_3
+      213: 2976702482088524832
+    second: Purple Elevator_3
   - first:
-      213: 9185428875698081084
-    second: Elevator_4
+      213: -8132314875963943324
+    second: Purple Elevator_4
   - first:
-      213: -208741854186598130
-    second: Elevator_5
+      213: -263682818566849701
+    second: Purple Elevator_5
   - first:
-      213: -6236430853028179839
-    second: Elevator_6
+      213: 2743553261501052814
+    second: Purple Elevator_6
   - first:
-      213: -1574809024071830820
-    second: Elevator_7
+      213: 296577012890917702
+    second: Purple Elevator_7
   - first:
-      213: 8624670674901891113
-    second: Elevator_8
+      213: -4108927777261780583
+    second: Purple Elevator_8
   - first:
-      213: -3496844259342731841
-    second: Elevator_9
+      213: 6202567870340676896
+    second: Purple Elevator_9
   - first:
-      213: -3088002372273774765
-    second: Elevator_10
+      213: 480720575630660006
+    second: Purple Elevator_10
   - first:
-      213: -2599252722778926446
-    second: Elevator_11
+      213: -5646235177367728726
+    second: Purple Elevator_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -73,7 +73,7 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -97,7 +97,7 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -124,6 +124,18 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -139,7 +151,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Elevator_0
+      name: Purple Elevator_0
       rect:
         serializedVersion: 2
         x: 0
@@ -153,14 +165,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1daf7b4f93d347070800000000000000
-      internalID: 8103168948674493137
+      spriteID: a186dc7e49eb7cec0800000000000000
+      internalID: -3546656634777540582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Elevator_1
+      name: Purple Elevator_1
       rect:
         serializedVersion: 2
         x: 16
@@ -174,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59488f75016ae84c0800000000000000
-      internalID: -4283303606457170795
+      spriteID: 67e56e23c70b46560800000000000000
+      internalID: 7306158542978178678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Elevator_2
+      name: Purple Elevator_2
       rect:
         serializedVersion: 2
         x: 32
@@ -195,14 +207,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e76f318089ebb5b0800000000000000
-      internalID: -5351426994066200602
+      spriteID: 69e7444b9c09619f0800000000000000
+      internalID: -498051512790647146
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Elevator_3
+      name: Purple Elevator_3
       rect:
         serializedVersion: 2
         x: 48
@@ -216,14 +228,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56f784f1fb4507f00800000000000000
-      internalID: 1112482287800844133
+      spriteID: 02cf8eed22f5f4920800000000000000
+      internalID: 2976702482088524832
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Elevator_4
+      name: Purple Elevator_4
       rect:
         serializedVersion: 2
         x: 0
@@ -237,14 +249,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3d899d55e2397f70800000000000000
-      internalID: 9185428875698081084
+      spriteID: 4665b8805b6342f80800000000000000
+      internalID: -8132314875963943324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Elevator_5
+      name: Purple Elevator_5
       rect:
         serializedVersion: 2
         x: 16
@@ -258,14 +270,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e01937bb3666a1df0800000000000000
-      internalID: -208741854186598130
+      spriteID: b5bf2f1afd5375cf0800000000000000
+      internalID: -263682818566849701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Elevator_6
+      name: Purple Elevator_6
       rect:
         serializedVersion: 2
         x: 32
@@ -279,14 +291,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18018f26e2fb379a0800000000000000
-      internalID: -6236430853028179839
+      spriteID: e877226c72f031620800000000000000
+      internalID: 2743553261501052814
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Elevator_7
+      name: Purple Elevator_7
       rect:
         serializedVersion: 2
         x: 48
@@ -300,14 +312,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd27e1b4987252ae0800000000000000
-      internalID: -1574809024071830820
+      spriteID: 64bd8edc837ad1400800000000000000
+      internalID: 296577012890917702
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Elevator_8
+      name: Purple Elevator_8
       rect:
         serializedVersion: 2
         x: 0
@@ -321,14 +333,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 928714a884cf0b770800000000000000
-      internalID: 8624670674901891113
+      spriteID: 9918394e4f72af6c0800000000000000
+      internalID: -4108927777261780583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Elevator_9
+      name: Purple Elevator_9
       rect:
         serializedVersion: 2
         x: 16
@@ -342,14 +354,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb533075ca6b87fc0800000000000000
-      internalID: -3496844259342731841
+      spriteID: 02d38ee8d92f31650800000000000000
+      internalID: 6202567870340676896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Elevator_10
+      name: Purple Elevator_10
       rect:
         serializedVersion: 2
         x: 32
@@ -363,14 +375,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35fde0f04363525d0800000000000000
-      internalID: -3088002372273774765
+      spriteID: 6a1dfaa01dcdba600800000000000000
+      internalID: 480720575630660006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Elevator_11
+      name: Purple Elevator_11
       rect:
         serializedVersion: 2
         x: 48
@@ -384,8 +396,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2929b498b699debd0800000000000000
-      internalID: -2599252722778926446
+      spriteID: aad8eae650b84a1b0800000000000000
+      internalID: -5646235177367728726
       vertices: []
       indices: 
       edges: []
@@ -393,7 +405,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e176f65b87dc4a50b7de0da636489e5
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
