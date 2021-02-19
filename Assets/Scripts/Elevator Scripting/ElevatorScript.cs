@@ -1,13 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ElevatorScript : MonoBehaviour {
+    public bool detectsP1;
+    public bool detectsP2;
+
     private Animator anim;
     private Transform p1;
     private Transform p2;
     private Collider2D levelEndTrigger;
+
+    [HideInInspector]
+    public bool IsOpen { get; set; }
 
     int OpenDoorHash = Animator.StringToHash("Activate");
 
@@ -22,20 +25,22 @@ public class ElevatorScript : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
-        if (levelEndTrigger.OverlapPoint(p1.position) || levelEndTrigger.OverlapPoint(p2.position)) {
+        if((detectsP1 && levelEndTrigger.OverlapPoint(p1.position)) ||
+            (detectsP2 && levelEndTrigger.OverlapPoint(p2.position))) {
             OpenDoor();
         }
-        if(anim.GetCurrentAnimatorStateInfo(0).IsName("Open")) {
-            EndLevel();
+        else {
+            CloseDoor();
         }
+
+        IsOpen = anim.GetCurrentAnimatorStateInfo(0).IsName("Open");
     }
 
     private void OpenDoor() {
-        Debug.Log("Door Open");
-        anim.SetTrigger(OpenDoorHash);
+        anim.SetBool(OpenDoorHash, true);
     }
 
-    private void EndLevel() {
-        Debug.Log("Level ended!");
+    private void CloseDoor() {
+        anim.SetBool(OpenDoorHash, false);
     }
 }
