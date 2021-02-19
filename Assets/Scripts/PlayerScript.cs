@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
     public Role character;
     private List<string> Inventory;
     private string myClothing;
-    public GameObject myWinCondition;
+    //public GameObject myWinCondition;
     void Start()
     {
         Inventory = new List<string>();
