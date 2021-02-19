@@ -24,6 +24,9 @@ public class SceneTransition : MonoBehaviour {
             nextLevel = true;
         }
 
+        if(Input.GetKeyDown("space")) {
+            resetLevel = true;
+        }
 
         if(nextLevel) {
             LevelEnd();
@@ -54,6 +57,6 @@ public class SceneTransition : MonoBehaviour {
             //reload current scene
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        anim.SetTrigger(FadeToBlackHash)
+        anim.SetTrigger(FadeToBlackHash);
     }
 }
