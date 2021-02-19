@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    public enum Role { spy, prisoner }
+    public Role character;
     private List<string> Inventory;
     private string myClothing;
     public GameObject myWinCondition;
@@ -39,4 +41,15 @@ public class PlayerScript : MonoBehaviour
         return Inventory;
     }
 
+    public void OnInteracted(GameObject other)
+    {
+        if(character == Role.prisoner)
+        {
+            foreach(string item in Inventory)
+            {
+                other.gameObject.GetComponent<PlayerScript>().addItem(item);
+                Inventory.Remove(item);
+            }
+        }
+    }
 }

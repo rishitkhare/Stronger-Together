@@ -11,6 +11,7 @@ public class EnemyScript : MonoBehaviour
     public float speed;
     public float maxDistToWalls;
     public List<Vector2> PreProgrammedPath;
+    public Vector2 LineOfSightWidthLength;
     private Vector3 currentPathFind;
     private Vector3 currentDir;
     private Vector3 prevDir;
@@ -99,13 +100,13 @@ public class EnemyScript : MonoBehaviour
         transform.position += currentDir * Time.deltaTime;
     }
 
-    public void OnNoiseHeard(Vector3 noise)
+    public void OnNoiseHeard(Vector3 noise, GameObject cause)
     {
         float strength;
         bool heard = CalculateIfHeard(noise, out strength);
         if(heard)
         {
-            performAction(noise, strength);
+            performAction(noise, strength, cause);
         }
     }
     
@@ -122,12 +123,17 @@ public class EnemyScript : MonoBehaviour
         return false;
     }
 
-    private void performAction(Vector3 noise, float strength)
+    private void performAction(Vector3 noise, float strength, GameObject source)
     {
-        if(currentPathFind.z < strength)
+        if(currentPathFind.z < strength && source.GetComponent<PlayerScript>().wearing() == "spy")
         {
             currentPathFind = new Vector3(noise.x, noise.y, strength);
             routine = false;
         }
+    }
+
+    private void CheckLineOfSight()
+    {
+
     }
 }
