@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 804780542327567501}
   - component: {fileID: 804780542327567497}
   - component: {fileID: 804780542327567510}
+  - component: {fileID: 8037147739597590939}
   m_Layer: 6
   m_Name: Spy
   m_TagString: Player1
@@ -221,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c023b3ad6bced84ba2ee87a61832b05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myWinCondition: {fileID: 0}
+  character: 0
 --- !u!95 &804780542327567510
 Animator:
   serializedVersion: 3
@@ -241,6 +242,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8037147739597590939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804780542327567502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf17f46ab1d6284995ea95c4400152b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  createNoise:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &804780543101378351
 GameObject:
   m_ObjectHideFlags: 0
