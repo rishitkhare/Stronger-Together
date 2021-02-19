@@ -5,8 +5,6 @@ using UnityEngine;
 public class GroundItem : MonoBehaviour
 {
     public string id;
-    private GameObject bodyController;
-    private bool IsBeingControlled;
     void Start()
     {
         gameObject.SetActive(true);
@@ -20,6 +18,8 @@ public class GroundItem : MonoBehaviour
 
     public void OnInteracted(GameObject other)
     {
-        
+        other.GetComponent<PlayerScript>().addItem(id);
+        Debug.Log("added");
+        Destroy(gameObject);
     }
 }

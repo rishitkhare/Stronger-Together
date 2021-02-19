@@ -23,6 +23,7 @@ public class Interactable : MonoBehaviour
         {
             OnInteracted = new InteractionEvent();
         }
+        Interacting = false;
     }
 
     // Update is called once per frame
