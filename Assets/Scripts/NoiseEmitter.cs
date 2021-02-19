@@ -5,5 +5,5 @@ using UnityEngine.Events;
 
 public class NoiseEmitter : MonoBehaviour
 {
-    public UnityEvent<Vector3> createNoise;
+    public UnityEvent<Vector3, GameObject> createNoise;
 }
