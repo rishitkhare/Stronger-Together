@@ -64,6 +64,8 @@ public class PlayerMovementController : MonoBehaviour
             //animator is no longer moving
             anim.SetBool(isMovingHash, false);
         }
+
+        if (IsInteractingWithComputer) { collisionHandler.SetVelocity(Vector2.zero); }
     }
 
     private void AnimateCharacter(Vector2 input)
@@ -93,5 +95,4 @@ public class PlayerMovementController : MonoBehaviour
         }
     }
 
-    public void dummyProcess(Vector3 vec3, GameObject g) { }
 }
