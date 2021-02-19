@@ -40,6 +40,7 @@ public class CameraHandler : MonoBehaviour
     private GameObject player1;
     private GameObject player2;
 
+    private SceneTransition reloader;
 
     void Start()
     {
@@ -55,6 +56,7 @@ public class CameraHandler : MonoBehaviour
         SpotlightTrigger = SpotlightTriggerGameObject.GetComponent<Collider2D>();
         player1 = GameObject.Find(Player1);
         player2 = GameObject.Find(Player2);
+        reloader = GameObject.Find("SceneTransitioner").GetComponent<SceneTransition>();
     }
 
     // Update is called once per frame
@@ -94,7 +96,7 @@ public class CameraHandler : MonoBehaviour
         SpotlightTriggerGameObject.transform.rotation = Quaternion.AngleAxis(center + currentAngle, Vector3.forward);
         if(CheckIfPlayerCollides())
         {
-            Debug.Log("Player Detected");
+            reloader.RestartLevel();
         }
     }
 

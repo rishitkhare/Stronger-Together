@@ -12,7 +12,8 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         Inventory = new List<string>();
-        myClothing = "spy";
+        if (character == Role.spy) { myClothing = "spy"; }
+        else { myClothing = "prisoner"; }
     }
 
     

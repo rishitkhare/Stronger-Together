@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class SceneTransition : MonoBehaviour {
     public ElevatorScript greenElevator;
@@ -23,11 +24,6 @@ public class SceneTransition : MonoBehaviour {
         if (greenElevator.IsOpen && purpleElevator.IsOpen) {
             nextLevel = true;
         }
-
-        if(Input.GetKeyDown("space")) {
-            resetLevel = true;
-        }
-
         if(nextLevel) {
             LevelEnd();
         }
@@ -37,6 +33,8 @@ public class SceneTransition : MonoBehaviour {
     }
 
     public void RestartLevel() {
+        Light2D light = GameObject.Find("Global Light 2D").GetComponent<Light2D>();
+        light.color = Color.red;
         resetLevel = true;
     }
 
