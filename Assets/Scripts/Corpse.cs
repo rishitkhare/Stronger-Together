@@ -9,6 +9,7 @@ public class Corpse : MonoBehaviour
     GameObject pulling;
     Vector2 dir;
     Vector2 velocity;
+    string clothing;
     void Start()
     {
         pulling = null;
@@ -60,4 +61,6 @@ public class Corpse : MonoBehaviour
         isBeingPulled = false;
         pulling = null;
     }
+
+    public void setClothing(string clothes) { clothing = clothes; }
 }

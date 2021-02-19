@@ -15,6 +15,7 @@ public class PlayerMovementController : MonoBehaviour
     SimpleRigidbody collisionHandler;
     Animator anim;
     SpriteRenderer sp;
+    NoiseEmitter myEmitter;
 
     Vector2 direction = Vector2.down;
 
@@ -39,25 +40,23 @@ public class PlayerMovementController : MonoBehaviour
     {
         Vector2 input = new Vector2(Input.GetAxisRaw(inputHorizontalName), Input.GetAxisRaw(inputVerticalName));
         input.Normalize();
+        float sneaknoise = 0;
 
         if(!IsInteractingWithComputer)
         {
             if (Input.GetKey(sneakButton))
             {
                 collisionHandler.SetVelocity((input * Speed) / sneakFactor);
+                sneaknoise = sneakNoiseReduction;
             }
             else
             {
                 collisionHandler.SetVelocity(input * Speed);
             }
-
-
-            if (collisionHandler.GetVelocity() != Vector2.zero)
+            if(collisionHandler.GetVelocity() != Vector2.zero)
             {
-                
+                myEmitter.createNoise.Invoke(new Vector3(transform.position.x, transform.position.y, footStepsNoise - sneaknoise), gameObject);
             }
-
-
             AnimateCharacter(input);
         }
         else {
