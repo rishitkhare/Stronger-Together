@@ -10,26 +10,33 @@ public class Computer : MonoBehaviour
     public bool interacting;
     private GameObject currentlyInteracting;
     private Interactable myInt;
+
+    private int interactableLeewayFrames;
+
     void Start()
     {
         myInt = gameObject.GetComponent<Interactable>();
+        interactableLeewayFrames = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         myInt.Interacting = interacting;
-        if (interacting && Input.GetKeyDown(endInteractionKey)) 
+        if (interactableLeewayFrames < 0 && interacting && Input.GetKeyDown(endInteractionKey)) 
         { 
             interacting = false;
             currentlyInteracting.GetComponent<PlayerMovementController>().IsInteractingWithComputer = false;
             currentlyInteracting = null;
         }
+
+        if(interactableLeewayFrames >= 0) { interactableLeewayFrames--; }
         myCamera.gameObject.GetComponent<CameraHandler>().playerIsControlling = interacting;
     }
     public void OnInteracted(GameObject other)
     {
         interacting = true;
+        interactableLeewayFrames = 25;
         other.GetComponent<PlayerMovementController>().IsInteractingWithComputer = true;
         currentlyInteracting = other;
     }
