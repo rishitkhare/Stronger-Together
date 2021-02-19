@@ -103,6 +103,7 @@ public class CameraHandler : MonoBehaviour
         Vector2[] Player1ColliderVertices = GetVerticesOfBoxCollider(Player1CameraCollider);
 
         foreach(Vector2 point in Player1ColliderVertices) {
+
             if(SpotlightTrigger.OverlapPoint(point) && VisionToPointNotObstructed(point)) {
                 if(clothingToAlert.Contains(player1.gameObject.GetComponent<PlayerScript>().wearing()))
                 {
