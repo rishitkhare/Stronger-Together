@@ -8990,6 +8990,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 514942593936518994, guid: 87317786d86274581a6eaa3727ff5411, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1473422573133558242, guid: 3fbd6cf948177473db66dc90c4589b64, type: 3}
+    - target: {fileID: 514942593936518994, guid: 87317786d86274581a6eaa3727ff5411, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 514942593936518995, guid: 87317786d86274581a6eaa3727ff5411, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -9155,6 +9163,14 @@ PrefabInstance:
     - target: {fileID: 6042786412546798721, guid: 1b65fe4fadc9046f0bee78537c5384fd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042786412546798726, guid: 1b65fe4fadc9046f0bee78537c5384fd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3546656634777540582, guid: 59a0a8f6627e8834c9003b9631f5fb1d, type: 3}
+    - target: {fileID: 6042786412546798726, guid: 1b65fe4fadc9046f0bee78537c5384fd, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6042786412546798842, guid: 1b65fe4fadc9046f0bee78537c5384fd, type: 3}
       propertyPath: m_Name
