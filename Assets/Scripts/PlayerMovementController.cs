@@ -31,6 +31,7 @@ public class PlayerMovementController : MonoBehaviour
     void Start()
     {
         collisionHandler = gameObject.GetComponent<SimpleRigidbody>();
+        myEmitter = gameObject.GetComponent<NoiseEmitter>();
         anim = gameObject.GetComponent<Animator>();
         sp = gameObject.GetComponent<SpriteRenderer>();
     }
@@ -88,4 +89,6 @@ public class PlayerMovementController : MonoBehaviour
             sp.flipX = true;
         }
     }
+
+    public void dummyProcess(Vector3 vec3, GameObject g) { }
 }
