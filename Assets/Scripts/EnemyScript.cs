@@ -18,7 +18,6 @@ public class EnemyScript : MonoBehaviour {
     public int waitFrames;
     public int dirWait;
     public LayerMask wallLayer;
-    public LayerMask cameraLayer;
     public List<string> clothingToAlert;
 
     private Vector2Int gridPosition;
@@ -41,9 +40,8 @@ public class EnemyScript : MonoBehaviour {
         spren = gameObject.GetComponent<SpriteRenderer>();
 
         transform.position = new Vector2(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
-        gridPosition = new Vector2Int((int)transform.position.x, (int)transform.position.y);
+        gridPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
         currentPathFind = new Vector3(homePosition.x, homePosition.y, 0);
-        currentDir = new Vector3(1, 0, 0);
         if (PreProgrammedPath == null) {
             PreProgrammedPath = new List<Vector2>();
         }
@@ -59,6 +57,8 @@ public class EnemyScript : MonoBehaviour {
         Player1 = GameObject.FindGameObjectWithTag("Player1");
         Player2 = GameObject.FindGameObjectWithTag("Player2");
         transition = GameObject.Find("SceneTransitioner").GetComponent<SceneTransition>();
+        
+        Pathfind();
     }
 
     // Update is called once per frame
@@ -137,6 +137,8 @@ public class EnemyScript : MonoBehaviour {
             canGoRight,
         };
 
+        Debug.Log(possibleDirectionsAllowed[3]);
+
         Vector2Int target = new Vector2Int(Mathf.RoundToInt(currentPathFind.x), Mathf.RoundToInt(currentPathFind.y));
 
         Vector2 oldGridPosition = gridPosition;
@@ -147,6 +149,9 @@ public class EnemyScript : MonoBehaviour {
 
         if (gridPosition == target) {
             transform.position = new Vector3(target.x, target.y, 0);
+            gridPosition.x = (int)transform.position.x;
+            gridPosition.y = (int)transform.position.y;
+            /*currentDir = Vector3.zero;*/
             return;
         }
 
@@ -161,8 +166,6 @@ public class EnemyScript : MonoBehaviour {
 
         // how much distance gained towards target in cardinal direction
         float[] possiblePositionsCosts = new float[4];
-
-        Vector2Int curDir = new Vector2Int((int)currentDir.x, (int)currentDir.y);
 
         for (int i = 0; i < possiblePositions.Length; i++) {
 
@@ -245,6 +248,8 @@ public class EnemyScript : MonoBehaviour {
             if (!canGoDown) { currentDir = Vector3.zero; }
             else if ((canGoRight && myPosX <= pathX) || (canGoLeft && myPosX >= pathX)) { currentDir = Vector3.zero; }
         }*/
+        Debug.Log($"{possibleDirectionsAllowed[0]}, {possibleDirectionsAllowed[1]}, {possibleDirectionsAllowed[2]}, {possibleDirectionsAllowed[3]}");
+        Debug.Break();
     }
 
     public void OnNoiseHeard(Vector3 noise, GameObject cause) {
