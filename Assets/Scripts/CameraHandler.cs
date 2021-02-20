@@ -35,8 +35,6 @@ public class CameraHandler : MonoBehaviour
 
     public Animator SpriteAnimator;
 
-    public UnityEvent OnDetected;
-
     private GameObject player1;
     private GameObject player2;
 
@@ -45,7 +43,6 @@ public class CameraHandler : MonoBehaviour
     void Start()
     {
         currentAngle = 0;
-        if (OnDetected == null) { OnDetected = new UnityEvent(); }
 
         Player1CameraCollider = GameObject.FindGameObjectWithTag("Player1")
             .transform.Find("CameraCollider").GetComponent<BoxCollider2D>();
