@@ -1,0 +1,7 @@
+???; Agent Espinae. Your top-secret mission: Infiltrate the prison complex and assassinate Hees, Holder of the Keys. Failure to do so will result in some ... dire consequences. Do you understand your mission? 
+Spy_default; * The Spy nods in understanding. 
+???; ...You realize I can't see you nodding through the radio?
+Spy_default; * . . . The Spy continues nodding.
+???; ...Never mind. Proceed with your mission. I expect no less than flawless work from you. 
+???; Intel dictates a “syndicate” of sorts at Hees’ location. Be wary. They might be extremely belligerent and compromise the mission.
+--- Radio Transmission Cuts ---

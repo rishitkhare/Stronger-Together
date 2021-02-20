@@ -1,0 +1,16 @@
+Prisoner_default; !
+Prisoner_wait02; Hey wait, I have some important information. . .
+Prisoner_wait01; Have you ever wondered what the death row inmate called his last supper?
+Spy_deep; * The Spy shakes their head.
+Prisoner_die01; ... 
+Prisoner_lmao01; He called it Ciao time! 
+Prisoner_wait01; Haha! Get it?
+Spy_depress; * The Spy was so dismayed by the terrible joke that their shades fell off.
+Prisoner_ree01; Hey! My jokes aren’t that bad! Although I have another joke that might be more in-line with your sense of humor.
+Spy_bruh02; * Agent Espinae doesn’t have the patience nor the time to listen to the prisoner’s failed attempt of stand-up comedy.
+Prisoner_ree04; Hey what’s with the long face? 
+Prisoner_default; Anyways, Did you hear about the inmate that stuttered?
+Prisoner_lmao01; He never finished his sentence!
+Spy_bruh02; * The Spy has a queasy feeling and considered getting caught by the guards right about now. 
+Spy_huh01; * The Spy is in tears at how bad these jokes are. On the inside, of course. 
+Spy_default; * They put their sunglasses back on, doing their best to hide the pain.

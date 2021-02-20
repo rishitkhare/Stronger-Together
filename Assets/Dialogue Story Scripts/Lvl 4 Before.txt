@@ -1,0 +1,6 @@
+Prisoner_blank06; psst.
+Prisoner_browtf04; There are guards here.
+Prisoner_browtf03; You’re probably really quiet, considering, y’know, the spy infiltration business, but you better kaput. 
+Prisoner_browtf01; I’m serious. I don’t want to get caught just because you sound like a giant cymbal monkey.
+Spy_Wtf03; * . . .
+Spy_bruh02; * The Spy thinks the prisoner is the actual problem here.

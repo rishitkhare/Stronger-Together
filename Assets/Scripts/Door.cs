@@ -40,14 +40,11 @@ public class Door : MonoBehaviour
             shadow.enabled = true;
         }
         anim.SetBool(doorIsOpenHash, open);
-
-        if(Input.GetKeyDown("n")) {
-            OnOpened();
-        }
     }
 
     public void OnOpened()
     {
+        AudioManager.instance.Play("Open_Close Door");
         myDoorState = DoorState.open;
     }
 

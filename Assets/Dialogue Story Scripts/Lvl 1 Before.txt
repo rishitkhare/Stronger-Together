@@ -1,0 +1,7 @@
+Prisoner_grr06; Hm?
+Prisoner_lmao01; Oh hey, thanks for aiding the Syndicate. Anyways, don’t mind me, I’m just gonna head on out.
+Prisoner_wtf02; Crap! If that camera spots me escaping, the Syndicate will never have a chance. 
+Prisoner_default; Hey you! You mind hacking that camera for me?
+Prisoner_wait02; A truant guard left his station a while back, so I think you can just hop onto the computer. 
+Prisoner_wait01; I don’t know how to use it, but I bet you’re smart enough to do some of that techno-whatever magic to disable it.
+Spy_default; * Noted: Time spent in the cell must have rotted the prisoners’ brains.

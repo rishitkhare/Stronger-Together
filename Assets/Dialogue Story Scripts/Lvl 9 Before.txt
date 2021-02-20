@@ -1,0 +1,5 @@
+Prisoner_blank01; Meow chirp chirp woof.
+Spy_wtf01; * ??????
+Spy_wtf03; * ?????????????
+Prisoner_blank03; REEEEEEE.
+Spy_default; * The Spy decides to ignore the ...quirks of the Holder’s obviously failed experiment.

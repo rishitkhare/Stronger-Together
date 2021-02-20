@@ -4,9 +4,13 @@ using UnityEngine;
 using UnityEngine.Events;
 public class DoorButton : MonoBehaviour
 {
+    public Sprite openButton;
+    private SpriteRenderer sr;
     public UnityEvent opened;
     void Start()
     {
+        sr = gameObject.GetComponent<SpriteRenderer>();
+
         if(opened == null)
         {
             opened = new UnityEvent();
@@ -23,8 +27,9 @@ public class DoorButton : MonoBehaviour
     {
         if(other.GetComponent<PlayerScript>().myInventory().Contains("KeyCard"))
         {
-            other.GetComponent<PlayerScript>().myInventory().Remove("KeyCard");
+            Debug.Log(other.GetComponent<PlayerScript>().myInventory().Remove("KeyCard"));
             opened.Invoke();
+            sr.sprite = openButton;
         }
     }
 }

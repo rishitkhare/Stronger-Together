@@ -230,9 +230,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 4
   inputHorizontalName: HorizontalPlayer2
-  sneakFactor: 0
+  sneakFactor: 2
   sneakNoiseReduction: 0
-  sneakButton: 0
+  sneakButton: 304
   inputVerticalName: VerticalPlayer2
   footStepsNoise: 0
 --- !u!114 &6958365526245371207
