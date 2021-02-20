@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 804780542327567497}
   - component: {fileID: 804780542327567510}
   - component: {fileID: 8037147739597590939}
+  - component: {fileID: 2211120456138164250}
   m_Layer: 6
   m_Name: Spy
   m_TagString: Player1
@@ -205,9 +206,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 4
   inputHorizontalName: Horizontal
-  sneakFactor: 0
+  sneakFactor: 2
   sneakNoiseReduction: 0
-  sneakButton: 0
+  sneakButton: 110
   inputVerticalName: Vertical
   footStepsNoise: 0
 --- !u!114 &804780542327567497
@@ -257,6 +258,42 @@ MonoBehaviour:
   createNoise:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2211120456138164250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804780542327567502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f434b82db34b848940bf9286a16fc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myTriggerMethod: 0
+  Player1ObjectName: Spy
+  Player2ObjectName: Prisoner
+  Player1InteractionKey: 282
+  Player2InteractionKey: 32
+  MaxDist: 1.3
+  DisablePlayer1: 1
+  DisablePlayer2: 0
+  OnInteracted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  Interacting: 0
 --- !u!1 &804780543101378351
 GameObject:
   m_ObjectHideFlags: 0

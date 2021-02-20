@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour {
 
+
+    //singleton instance
+    public static DialogueManager Instance;
+
     //speaker and dialogue
     public Text nameText;
     public Text dialogueText;
@@ -18,7 +22,7 @@ public class DialogueManager : MonoBehaviour {
     private Queue<string> sentences;
 
     private void Start() {
-
+        Instance = this;
         sentences = new Queue<string>();
 
     }

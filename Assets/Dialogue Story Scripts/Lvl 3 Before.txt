@@ -1,0 +1,6 @@
+Prisoner_grr06; An infiltrator has made it up to here?
+Prisoner_lmao01; Ha.
+Prisoner_default; The security measures will only get tighter as you go up.
+Prisoner_browtf01; Now get me out of here. 
+Prisoner_ree01; If you got this far up, you probably know what to do with these computers. There’s a bunch of cameras and doors, and I can’t make any sense of them.
+Spy_thonk01; * The Spy thinks back. . . It appears each computer corresponds with a different camera, and that each key card corresponds with a door.

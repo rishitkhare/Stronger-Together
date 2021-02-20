@@ -44,12 +44,11 @@ public class PlayerScript : MonoBehaviour
 
     public void OnInteracted(GameObject other)
     {
-        if(character == Role.prisoner)
+        if(character == Role.spy)
         {
-            foreach(string item in Inventory)
-            {
-                other.gameObject.GetComponent<PlayerScript>().addItem(item);
-                Inventory.Remove(item);
+            for (int i = 0; i < other.gameObject.GetComponent<PlayerScript>().myInventory().Count; i++) {
+                addItem(other.gameObject.GetComponent<PlayerScript>().myInventory()[i]);
+                other.gameObject.GetComponent<PlayerScript>().myInventory().Remove(other.gameObject.GetComponent<PlayerScript>().myInventory()[i]);
             }
         }
     }
