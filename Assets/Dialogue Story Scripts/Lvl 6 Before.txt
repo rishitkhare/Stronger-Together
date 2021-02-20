@@ -1,0 +1,11 @@
+Prisoner_default; So you’re a spy, hmm?
+Spy_bruh02; * . . .
+Prisoner_lmao01; Not much of a talker, huh?
+Spy_thonk02; * . . .
+Prisoner_die01; What, you think I can’t be quiet?
+Prisoner_angry01; I’LL SHOW YOU! I CAN BE QUIET TOO!
+Prisoner_shoot01; . . .
+Prisoner_angry06; Being quiet is not as cool as pickpocketing! I can steal from the guards and they won’t even notice! 
+Prisoner_angry04; I’ve even learned to pickpocket through the miniscule gaps of the laser cells. I bet you’re quaking at how hip and cool I am right now!!!
+Spy_bruh02; * . . .
+Spy_heh; * The Spy is content that the prisoner is being somewhat useful, even though the prisoner is obviously envious of the Spy’s gift of gab.

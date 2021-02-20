@@ -1,0 +1,14 @@
+Spy_speechless02; * The Spy passes through a deep, claustrophobic corridor. Surrounding the Spy are countless portraits, each with a unique title.
+Spy_bruh01; The Spy assumes that these are the Holders of the Past.
+???; Beware Bes, the Keeper of Bees.
+???; Take caution of Chez, the Container of Cheese.
+???; Fear Fresh, the Fridge of Freeze.
+???; Remain guarded in the face of Geis, the Garden of Geese.
+???; But most importantly. . . heed the warnings of Hees: the Holder of the Keys. 
+Hees_Silhouette; Oh? You’re approaching me? Instead of fleeing, you’re coming straight to me?
+Spy_huh02; * . . . The Spy just wants to get this over with.
+Spy_wtf03; W i l l   y o u   j u s t   s h u t   u p ,   m a n ?
+Spy_wtf01; * Without any hesitation, Agent Espinae pulls out their pistol and fires with perfect aim, watching as Hees’ corpse falls over.
+Spy_huh02; * Cough Cough * 
+Spy_smile03; * . . .
+Spy_heh; * The spy leaves, their mission completed flawlessly.

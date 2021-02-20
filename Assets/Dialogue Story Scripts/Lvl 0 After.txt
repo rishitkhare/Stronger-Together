@@ -1,0 +1,5 @@
+Prisoner_die01; . . . 
+Prisoner_heh01; Thanks.
+Spy_deep; . . . * They better spill the beans, if they know what’s best for them.
+Prisoner_default; The Holder is on the 15th floor. Head to the Green Elevator to keep going up. I’m gonna head out the Purple Elevator now, so good luck. The Syndicate recognizes your kind gesture. . .
+Spy_wtf02; * . . . THE Syndicate??? . . . Hopefully nothing will go awry. . .

@@ -1,0 +1,3 @@
+Spy_thonk01; The Spy wonders whether this is an act of letting them in, or letting them out. . .
+Prisoner_die01; Heck yeah, I’m out of here!
+Spy_heh; * The Spy laughs in his head: “Toodles.”

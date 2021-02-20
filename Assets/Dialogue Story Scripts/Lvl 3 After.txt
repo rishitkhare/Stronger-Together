@@ -1,0 +1,8 @@
+Spy_thonk03; * The Spy assumes that the guards are quite careless, littering their “precious” key cards everywhere. 
+Spy_smile03; The Spy contemplates. . . Is it really going to be that hard to assassinate Hees, the Holder of the Keys?
+Prisoner_hmm; I don’t know what you’re thinking, but Hees isn’t some pushover. 
+Prisoner_angry03; He’s just concentrating all his security measures closer to him, like a pathetic coward. He doesn’t care about the lower levels as much.
+Prisoner_angry03; . . . You better hurry up and put a bullet through his head, after what he’s done to the Syndicate.
+Prisoner_lmao01; Anyways, adios.
+Spy_bruh01; * . . .
+Spy_default; * The Spy checks his holster containing the silenced pistol. As expected, there’s only one bullet left. . .

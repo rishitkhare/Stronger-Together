@@ -1,0 +1,17 @@
+Prisoner_default; Hey, what’s your name? It’s important to know who you’re working with, ya’know?
+Spy_default; * The Spy passes the Prisoner their spy business card.
+Prisoner_default; “Agent Espinae”...
+Prisoner_wait02; Wait a minute.
+Prisoner_die01; I meant your real name!
+Spy_bruh01; * . . .
+Prisoner_browtf04; . . . .
+Spy_thonk02; * . . . . .
+Prisoner_ree05; . . . . . !
+Prisoner_angry02; . . . . . . . !!
+Spy_thonk04; * The Spy gives the Prisoner the Secret Business Card.
+Prisoner_heh01; ...Thanks. I appreciate it.
+Prisoner_die01; . . . Ronald? There’s no way your name’s Ronald! Give me your real name!
+Spy_depress; * The Spy sighs heavily and hands the Prisoner the Super Secret Legendary Card labelled with a single line of miniscule text.
+Prisoner_huh01; *Squints* Wait... Your name is Ceb B. Paei?
+Prisoner_lmao01; HAHA! What kind of name is THAT? That’s HILARIOUS!
+Spy_depress; * Agent C. Paei feels violated. Paei finds it hard to cope being the subject of a horrendous pun. . .

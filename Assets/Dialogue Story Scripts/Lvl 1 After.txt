@@ -1,0 +1,3 @@
+Spy_default; * Also noted: This prisoner has the same dark pink hair as the other one that just escaped. Is it just a coincidence? Or is it a Syndicate calling card? Who knows. . .
+Prisoner_default; Anyways, thanks again.
+Prisoner_wait01; I’m never coming back to this wretched place, heh.

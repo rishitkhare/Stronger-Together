@@ -35,6 +35,7 @@ public class Computer : MonoBehaviour
     }
     public void OnInteracted(GameObject other)
     {
+        AudioManager.instance.Play("Hack");
         interacting = true;
         interactableLeewayFrames = 25;
         other.GetComponent<PlayerMovementController>().IsInteractingWithComputer = true;

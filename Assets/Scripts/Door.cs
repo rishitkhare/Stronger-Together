@@ -44,6 +44,7 @@ public class Door : MonoBehaviour
 
     public void OnOpened()
     {
+        AudioManager.instance.Play("Open_Close Door");
         myDoorState = DoorState.open;
     }
 
