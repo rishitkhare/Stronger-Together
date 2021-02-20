@@ -27,7 +27,7 @@ public class DoorButton : MonoBehaviour
     {
         if(other.GetComponent<PlayerScript>().myInventory().Contains("KeyCard"))
         {
-            other.GetComponent<PlayerScript>().myInventory().Remove("KeyCard");
+            Debug.Log(other.GetComponent<PlayerScript>().myInventory().Remove("KeyCard"));
             opened.Invoke();
             sr.sprite = openButton;
         }

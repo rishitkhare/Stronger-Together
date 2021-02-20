@@ -115,7 +115,7 @@ MonoBehaviour:
   myTriggerMethod: 0
   Player1ObjectName: Spy
   Player2ObjectName: Prisoner
-  Player1InteractionKey: 32
+  Player1InteractionKey: 109
   Player2InteractionKey: 32
   MaxDist: 1
   DisablePlayer1: 0

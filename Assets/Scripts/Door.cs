@@ -40,10 +40,6 @@ public class Door : MonoBehaviour
             shadow.enabled = true;
         }
         anim.SetBool(doorIsOpenHash, open);
-
-        if(Input.GetKeyDown("n")) {
-            OnOpened();
-        }
     }
 
     public void OnOpened()
