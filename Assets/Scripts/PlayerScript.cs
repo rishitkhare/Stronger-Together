@@ -44,7 +44,7 @@ public class PlayerScript : MonoBehaviour
 
     public void OnInteracted(GameObject other)
     {
-        if(character == Role.prisoner)
+        if(character == Role.spy)
         {
             foreach(string item in Inventory)
             {
