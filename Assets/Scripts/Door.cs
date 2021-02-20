@@ -5,21 +5,54 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     public enum DoorState { open, closed}
-    public DoorState state;
+
+    private DoorState myDoorState;
+
+    private Collider2D col;
+    private Collider2D cameraObstructor;
+    private Animator anim;
+    private readonly int doorIsOpenHash = Animator.StringToHash("IsUnlocked");
 
     void Start()
     {
-        
+        myDoorState = DoorState.closed;
+        col = gameObject.GetComponent<Collider2D>();
+        cameraObstructor = transform.Find("Camera Collider").GetComponent<Collider2D>();
+        anim = gameObject.GetComponent<Animator>();
     }
 
 
     void Update()
     {
-        
+        bool open = IsOpened(myDoorState);
+        if(anim.GetCurrentAnimatorStateInfo(0).IsName("Open")) {
+            col.enabled = false;
+            cameraObstructor.enabled = false;
+        }
+        else {
+            col.enabled = true;
+            cameraObstructor.enabled = true;
+        }
+        anim.SetBool(doorIsOpenHash, open);
+
+        if(Input.GetKeyDown("n")) {
+            OnOpened();
+        }
     }
 
     public void OnOpened()
     {
-        state = DoorState.open;
+        myDoorState = DoorState.open;
+    }
+
+    private bool IsOpened(DoorState state) {
+        switch (state) {
+            case (DoorState.open):
+                return true;
+            case (DoorState.closed):
+                return false;
+        }
+
+        throw new System.ArgumentException();
     }
 }

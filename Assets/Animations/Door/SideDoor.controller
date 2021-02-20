@@ -11,13 +11,13 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -5324741419091148105}
-    m_Position: {x: 330, y: 100, z: 0}
+    m_Position: {x: 310, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2731875312572394196}
     m_Position: {x: 260, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8603956645116330639}
-    m_Position: {x: 420, y: 200, z: 0}
+    m_Position: {x: 300, y: 200, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -35,7 +35,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Door_Unlocked
+  m_Name: SideDoor_Unlocked
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -49,7 +49,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 4c120b22ac5f142eba5da9e79fbafc45, type: 2}
+  m_Motion: {fileID: 7400000, guid: 218f36b9477cf4835b57bdf85b9c4224, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -87,7 +87,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Door_Locked
+  m_Name: SideDoor_Locked
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -101,7 +101,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: df42001c9ae3f45a89362040856b309f, type: 2}
+  m_Motion: {fileID: 7400000, guid: 547562b41541545659769e263fd3f6bc, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -123,7 +123,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 23.65
+  m_ExitTime: 0.394
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -135,7 +135,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Door
+  m_Name: SideDoor
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: IsUnlocked
@@ -143,7 +143,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -177,7 +177,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b89696478c9054661a7dd93fbf927a2e, type: 2}
+  m_Motion: {fileID: 7400000, guid: ca3754f614ee94389ad91dfae16d83b7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
