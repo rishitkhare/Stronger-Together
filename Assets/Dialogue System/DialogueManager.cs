@@ -53,14 +53,15 @@ public class DialogueManager : MonoBehaviour {
             dialogueQueue.Enqueue(dialog);
         }
 
-        DisplayNextSentence();
+        DisplayNextSentence(out bool success);
     }
 
-    public void DisplayNextSentence() {
+    public void DisplayNextSentence(out bool success) {
 
         if (dialogueQueue.Count == 0) {
 
             CloseDialogueBox();
+            success = false;
             return;
 
         }
@@ -75,6 +76,7 @@ public class DialogueManager : MonoBehaviour {
         string typedText = dialog.dialogText;
         StopAllCoroutines();
         StartCoroutine(TypeSentence(typedText));
+        success = true;
 
     }
 
