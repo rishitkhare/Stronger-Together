@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(SimpleRigidbody))]
-public class EnemyScript : MonoBehaviour
-{
+public class EnemyScript : MonoBehaviour {
     private SimpleRigidbody rb;
     private Animator anim;
     private readonly int dirXHash = Animator.StringToHash("DirectionX");
@@ -19,6 +18,7 @@ public class EnemyScript : MonoBehaviour
     public int waitFrames;
     public int dirWait;
     public LayerMask wallLayer;
+    public LayerMask cameraLayer;
     public List<string> clothingToAlert;
 
     private Vector2Int gridPosition;
@@ -33,22 +33,21 @@ public class EnemyScript : MonoBehaviour
     private GameObject Player1;
     private GameObject Player2;
     private SceneTransition transition;
+
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         rb = gameObject.GetComponent<SimpleRigidbody>();
         anim = gameObject.GetComponent<Animator>();
         spren = gameObject.GetComponent<SpriteRenderer>();
 
-        gridPosition = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
+        transform.position = new Vector2(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
+        gridPosition = new Vector2Int((int)transform.position.x, (int)transform.position.y);
         currentPathFind = new Vector3(homePosition.x, homePosition.y, 0);
-        currentDir = new Vector3(0, 0, 0);
-        if(PreProgrammedPath == null)
-        {
+        currentDir = new Vector3(1, 0, 0);
+        if (PreProgrammedPath == null) {
             PreProgrammedPath = new List<Vector2>();
         }
-        else
-        {
+        else {
             routineStage = 1;
             currentPathFind = new Vector3(PreProgrammedPath[1].x, PreProgrammedPath[1].y, 0);
         }
@@ -63,25 +62,24 @@ public class EnemyScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         Vector2Int currentGridPathFind = new Vector2Int(Mathf.RoundToInt(currentPathFind.x), Mathf.RoundToInt(currentPathFind.y));
-        if ((gridPosition - currentGridPathFind).sqrMagnitude > 0.6f && currentWaitFrame == 0)
-        {
-            Pathfind();
+        if ((gridPosition - currentGridPathFind).sqrMagnitude > 0.1f && currentWaitFrame == 0) {
+            if (IsAtNewGridNode()) {
+                Pathfind();
+            }
+
+
+            transform.position += currentDir * speed * Time.deltaTime;
             anim.SetBool(isMovingHash, true);
         }
 
-        else if (routine && currentWaitFrame == 0)
-        {
-            if (PreProgrammedPath.Count > 1)
-            {
-                if(routineStage == PreProgrammedPath.Count - 1)
-                {
+        else if (routine && currentWaitFrame == 0) {
+            if (PreProgrammedPath.Count > 1) {
+                if (routineStage == PreProgrammedPath.Count - 1) {
                     routineStage = 0;
                 }
-                else
-                {
+                else {
                     routineStage++;
                 }
 
@@ -91,7 +89,7 @@ public class EnemyScript : MonoBehaviour
 
             anim.SetBool(isMovingHash, false);
         }
-        else if(currentWaitFrame == 0) { currentPathFind = homePosition; routine = true; routineStage = 1; anim.SetBool(isMovingHash, false); }
+        else if (currentWaitFrame == 0) { currentPathFind = homePosition; routine = true; routineStage = 1; anim.SetBool(isMovingHash, false); }
 
         if (currentWaitFrame > 0) { currentWaitFrame--; }
 
@@ -110,17 +108,28 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    void Pathfind()
-    {
+    private bool IsAtNewGridNode() {
+        Vector2Int roundedPos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
+        //if not at current node, and close to another node
+        if (roundedPos != gridPosition && (Mathf.Abs(transform.position.x - Mathf.Round(transform.position.x)) < 0.05f)
+            && (Mathf.Abs(transform.position.y - Mathf.Round(transform.position.y)) < 0.05f)) {
+
+            transform.position = new Vector2(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y));
+
+            return true;
+        }
+
+        return false;
+    }
+
+
+    void Pathfind() {
         bool canGoRight = rb.RaycastXCollision(maxDistToWalls) == maxDistToWalls;
         bool canGoUp = rb.RaycastYCollision(maxDistToWalls) == maxDistToWalls;
         bool canGoLeft = rb.RaycastXCollision(-1 * maxDistToWalls) == maxDistToWalls * -1;
         bool canGoDown = rb.RaycastYCollision(-1 * maxDistToWalls) == maxDistToWalls * -1;
-        int myPosX = (int)transform.position.x;
-        int myPosY = (int)transform.position.y;
-        int pathX = (int)currentPathFind.x;
-        int pathY = (int)currentPathFind.y;
-        /*bool[] possibleDirectionsAllowed =
+
+        bool[] possibleDirectionsAllowed =
         {
             canGoUp,
             canGoDown,
@@ -129,18 +138,15 @@ public class EnemyScript : MonoBehaviour
         };
 
         Vector2Int target = new Vector2Int(Mathf.RoundToInt(currentPathFind.x), Mathf.RoundToInt(currentPathFind.y));
-        
-        // snaps to grid
-        if (Mathf.Abs(transform.position.x - Mathf.RoundToInt(transform.position.x)) < 0.05f) {
-            gridPosition.x = Mathf.RoundToInt(transform.position.x);
-        }
-        if (Mathf.Abs(transform.position.y - Mathf.RoundToInt(transform.position.y)) < 0.05f) {
-            gridPosition.y = Mathf.RoundToInt(transform.position.y);
-        }
+
+        Vector2 oldGridPosition = gridPosition;
+
+        //snaps to grid
+        gridPosition.x = Mathf.RoundToInt(transform.position.x);
+        gridPosition.y = Mathf.RoundToInt(transform.position.y);
 
         if (gridPosition == target) {
             transform.position = new Vector3(target.x, target.y, 0);
-            Debug.Log("Snapped");
             return;
         }
 
@@ -149,7 +155,7 @@ public class EnemyScript : MonoBehaviour
             gridPosition + Vector2Int.up,
             gridPosition + Vector2Int.down,
             gridPosition + Vector2Int.left,
-            gridPosition + Vector2Int.right,     
+            gridPosition + Vector2Int.right,
         };
         // unpriritizes x-axis
 
@@ -159,15 +165,20 @@ public class EnemyScript : MonoBehaviour
         Vector2Int curDir = new Vector2Int((int)currentDir.x, (int)currentDir.y);
 
         for (int i = 0; i < possiblePositions.Length; i++) {
-            possiblePositionsCosts[i] = (possiblePositions[i] - target).sqrMagnitude;
 
-            if (possiblePositions[i] - gridPosition == curDir * -1) {
-                possiblePositionsCosts[i] *= 2f;
+            //Do not let retread old ground
+            if (possiblePositions[i] == oldGridPosition) {
+                possibleDirectionsAllowed[i] = false;
+            }
+
+            //calculate costs if the direction is allowed
+            if (possibleDirectionsAllowed[i]) {
+                possiblePositionsCosts[i] = (possiblePositions[i] - target).sqrMagnitude;
             }
         }
 
-        float min = possiblePositionsCosts[0];
-        int index = 0;
+        float min = Mathf.Infinity;
+        int index = -1;
 
         // calculates minimum cost of a certain cardinal direction
         for (int i = 0; i < possiblePositionsCosts.Length; i++) {
@@ -176,6 +187,11 @@ public class EnemyScript : MonoBehaviour
                 index = i;
             }
         }
+
+        //randomization on the path
+        //if(UnityEngine.Random.Range(0f, 1f) < 0.5f) {
+
+        //}
 
         Vector3 newDir = Vector3.zero;
 
@@ -198,13 +214,13 @@ public class EnemyScript : MonoBehaviour
             currentWaitFrame = dirWait;
         }
 
-        currentDir = newDir; */
+        currentDir = newDir;
 
-        if(currentDir == Vector3.zero)
+        /*if(currentDir == Vector3.zero)
         {
-            if (canGoRight && (myPosX <= pathX || ((myPosY < pathY && !canGoUp) && (myPosY > pathY && !canGoDown)))) 
+            if (canGoRight && (myPosX < pathX || ((myPosY < pathY && !canGoUp) && (myPosY > pathY && !canGoDown)))) 
                 { currentDir = new Vector3(speed, 0, 0); }
-            else if (canGoLeft && (myPosX >= pathX || ((myPosY < pathY && !canGoUp) && (myPosY > pathY && !canGoDown)))) 
+            else if (canGoLeft && (myPosX > pathX || ((myPosY < pathY && !canGoUp) && (myPosY > pathY && !canGoDown)))) 
                 { currentDir = new Vector3(speed * -1, 0, 0); }
             else if (canGoUp && (myPosY < pathY || myPosX != pathX)) { currentDir = new Vector3(0, speed, 0); }
             else if (canGoDown && (myPosY > pathY || myPosX != pathX)) { currentDir = new Vector3(0, speed * -1, 0); }
@@ -228,54 +244,48 @@ public class EnemyScript : MonoBehaviour
         {
             if (!canGoDown) { currentDir = Vector3.zero; }
             else if ((canGoRight && myPosX <= pathX) || (canGoLeft && myPosX >= pathX)) { currentDir = Vector3.zero; }
-        }
-
-        transform.position += currentDir * speed * Time.deltaTime;
+        }*/
     }
 
-    public void OnNoiseHeard(Vector3 noise, GameObject cause)
-    {
+    public void OnNoiseHeard(Vector3 noise, GameObject cause) {
         float strength;
         bool heard = CalculateIfHeard(noise, out strength);
-        if(heard)
-        {
+        if (heard && !checkIfBehindWall(new Vector2(noise.x, noise.y))) {
             performAction(noise, strength, cause);
         }
     }
-    
-    private bool CalculateIfHeard(Vector3 noise, out float strength)
-    {
+
+    private bool CalculateIfHeard(Vector3 noise, out float strength) {
         float radius = noise.z;
         float dist = (new Vector2(noise.x, noise.y) - new Vector2(transform.position.x, transform.position.y)).magnitude;
-        if (dist < radius)
-        {
-            strength = dist;
+        if (dist < radius && radius - dist > NoiseStrengthThreshold) {
+            strength = radius - dist;
             return true;
         }
         strength = 0;
         return false;
     }
 
-    private void performAction(Vector3 noise, float strength, GameObject source)
-    {
-        if(currentPathFind.z <= strength && source.GetComponent<PlayerScript>().wearing() == "spy")
-        {
+    private void performAction(Vector3 noise, float strength, GameObject source) {
+        if (currentPathFind.z <= strength && source.GetComponent<PlayerScript>().wearing() == "spy") {
             currentPathFind = new Vector3(noise.x, noise.y, strength);
             routine = false;
         }
     }
 
-    private bool CheckLineOfSight()
-    {
+    private bool checkIfBehindWall(Vector2 position) {
+        Vector2 directionVector = position - new Vector2(transform.position.x, transform.position.y);
+        RaycastHit2D hitwall = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), directionVector.normalized, directionVector.magnitude, wallLayer);
+        return hitwall;
+    }
+
+    private bool CheckLineOfSight() {
         Vector2[] Player1ColliderVertices = GetVerticesOfBoxCollider(Player1Col);
 
-        foreach (Vector2 point in Player1ColliderVertices)
-        {
+        foreach (Vector2 point in Player1ColliderVertices) {
 
-            if (myLineOfSight.OverlapPoint(point) && VisionToPointNotObstructed(point))
-            {
-                if (clothingToAlert.Contains(Player1.gameObject.GetComponent<PlayerScript>().wearing()))
-                {
+            if (myLineOfSight.OverlapPoint(point) && VisionToPointNotObstructed(point)) {
+                if (clothingToAlert.Contains(Player1.gameObject.GetComponent<PlayerScript>().wearing())) {
                     return true;
                 }
             }
@@ -283,12 +293,9 @@ public class EnemyScript : MonoBehaviour
 
         Vector2[] Player2ColliderVertices = GetVerticesOfBoxCollider(Player2Col);
 
-        foreach (Vector2 point in Player2ColliderVertices)
-        {
-            if (myLineOfSight.OverlapPoint(point) && VisionToPointNotObstructed(point))
-            {
-                if (clothingToAlert.Contains(Player2.gameObject.GetComponent<PlayerScript>().wearing()))
-                {
+        foreach (Vector2 point in Player2ColliderVertices) {
+            if (myLineOfSight.OverlapPoint(point) && VisionToPointNotObstructed(point)) {
+                if (clothingToAlert.Contains(Player2.gameObject.GetComponent<PlayerScript>().wearing())) {
                     return true;
                 }
             }
@@ -297,8 +304,7 @@ public class EnemyScript : MonoBehaviour
         return false;
     }
 
-    private bool VisionToPointNotObstructed(Vector2 point)
-    {
+    private bool VisionToPointNotObstructed(Vector2 point) {
         Vector2 directionToPlayer = point - (Vector2)(transform.position);
         float distanceToPlayer = directionToPlayer.magnitude;
         directionToPlayer.Normalize();
@@ -308,13 +314,11 @@ public class EnemyScript : MonoBehaviour
         return !rayHitsWall;
     }
 
-    private Vector2[] GetVerticesOfBoxCollider(BoxCollider2D col)
-    {
+    private Vector2[] GetVerticesOfBoxCollider(BoxCollider2D col) {
         Vector2[] output = new Vector2[4];
 
         //put them all at the center, then move them to the corners using size.
-        for (int i = 0; i < output.Length; i++)
-        {
+        for (int i = 0; i < output.Length; i++) {
             output[i] = col.transform.position;
             output[i].x += col.offset.x;
             output[i].y += col.offset.y;
