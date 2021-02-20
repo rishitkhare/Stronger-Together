@@ -21,8 +21,8 @@ public class SceneTransition : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (greenElevator.IsOpen && purpleElevator.IsOpen) {
-            nextLevel = true;
+        if (!nextLevel && greenElevator.IsOpen && purpleElevator.IsOpen) {
+            GoToNextLevel();
         }
         if(nextLevel) {
             LevelEnd();
@@ -39,6 +39,7 @@ public class SceneTransition : MonoBehaviour {
     }
 
     public void GoToNextLevel() {
+        AudioManager.instance.Play("Climbing Upstairs");
         nextLevel = true;
     }
 
@@ -46,7 +47,7 @@ public class SceneTransition : MonoBehaviour {
         if(anim.GetCurrentAnimatorStateInfo(0).IsName("TransitionScene")) {
             //load next scene
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+            }
         anim.SetTrigger(FadeToBlackHash);
     }
 

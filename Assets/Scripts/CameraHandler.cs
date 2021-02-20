@@ -15,6 +15,9 @@ public class CameraHandler : MonoBehaviour
     public string Player1;
     public string Player2;
 
+    private bool HasRestarted;
+    private bool IsPlayerControllingSound;
+
     //public float FOVAngle;
     //public float innerRadius;
 
@@ -61,6 +64,10 @@ public class CameraHandler : MonoBehaviour
     {
         if(playerIsControlling)
         {
+            if (!IsPlayerControllingSound) {
+                AudioManager.instance.Play("Whir");
+            }
+            IsPlayerControllingSound = true;
             if(Input.GetKey(KeyCode.LeftArrow))
             {
                 if(currentAngle < maxDeviationFromCenter)
@@ -80,7 +87,6 @@ public class CameraHandler : MonoBehaviour
             }
         }
 
-
         SpotlightTriggerGameObject.transform.rotation = Quaternion.AngleAxis(center + currentAngle, Vector3.forward);
         LightGameObject.transform.rotation = Quaternion.AngleAxis(center + currentAngle, Vector3.forward);
 
@@ -91,8 +97,10 @@ public class CameraHandler : MonoBehaviour
     void FixedUpdate()
     {
         SpotlightTriggerGameObject.transform.rotation = Quaternion.AngleAxis(center + currentAngle, Vector3.forward);
-        if(CheckIfPlayerCollides())
+        if(!HasRestarted && CheckIfPlayerCollides())
         {
+            AudioManager.instance.Play("Zap");
+            HasRestarted = true;
             reloader.RestartLevel();
         }
     }
