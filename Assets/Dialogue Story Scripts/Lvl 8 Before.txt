@@ -1,0 +1,6 @@
+Prisoner_blank01; . . .
+Spy_default; * . . .
+Prisoner_blank03; . . .
+Spy_bruh01; * . . .
+Prisoner_blank02; . . .
+Spy_smile02; * The Spy is glad to finally have some peace and quiet.

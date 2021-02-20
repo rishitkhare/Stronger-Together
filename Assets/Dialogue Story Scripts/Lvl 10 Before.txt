@@ -1,0 +1,18 @@
+Prisoner_default; The Syndicate has been waiting for you. . .
+Prisoner_Wait02; You’re on the 10th floor now, so it’ll be very difficult to get by the security measures without getting noticed. 
+Spy_deep; * The prisoner speaks of the obvious. 
+Prisoner_huh01; Hey wait you’re a spy! You should be able to disguise as a guard, right?
+Spy_bruh01; * The Spy realizes that they actually have to use their hidden talent of quick-dressing to deal with Hees’ security measures. 
+Spy_thonk01; * “Sad sad,” they think.
+Prisoner_default; You only have one bullet, right? I’ll knock out the guards so you can. . .
+Prisoner_browtf03; . . .steal their. . .
+Prisoner_browtf05; . . .clothing?
+Spy_bruh02; * . . .
+Spy_depress; * . . .
+Spy_wtf03; * The Spy wonders whether the Prisoner is just going to leave the bodies laying around.
+Prisoner_angry06; Hey, what’s with that face?
+Prisoner_angry04; . . .
+Prisoner_huh03; Oh! Are you worried that security will notice the unconscious bodies? 
+Prisoner_lmao01; I’ll just drag them out of view.
+Spy_depress; * The Spy thinks the Prisoner’s plan absolutely sucks. The guards will be alarmed when they awaken from being knocked unconscious.
+Spy_huh01; * They’ll just have to work with the dark pink haired imbecile’s plan. 

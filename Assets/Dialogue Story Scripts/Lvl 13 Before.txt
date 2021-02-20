@@ -1,0 +1,9 @@
+Prisoner_default; Squares are bad news, dude.
+Prisoner_wait02; Cubes are even worse.
+Spy_speechless01; * The Spy recalls the existence of mega squares.
+Prisoner_ree01; That look on your face. . . Don’t tell me. . .! 
+Prisoner_frick01; MEGA SQUARES????
+Prisoner_frick02; WAIT WHAT IF THERE ARE MEGA CUBES!??!?
+Prisoner_wtf03; aaaaAAAAAAAHHHH!!!
+Spy_huh02; * The Agent is confused by the Prisoner’s random outburst into an existential crisis. Then again, who wouldn’t?
+Spy_heh; * They are, however, amused by the silliness of the situation.

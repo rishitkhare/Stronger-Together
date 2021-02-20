@@ -1,0 +1,9 @@
+Prisoner_wtf01; I THOUGHT I FREED MYSELF!! WHERE DO I EVEN USE THIS KEY CARD?? HOW DOES THIS STUPID COMPUTER WORK!?
+Spy_speechless02; * . . . 
+Prisoner_wtf03; . . . 
+Prisoner_wtf02; Hey! You! Go do your techno-jumbo with that computer! Take my card and open the doors! LET ME IN! LET ME I--
+Prisoner_blank02; . . .
+Prisoner_ree01; I mean, LET ME OUT! LET ME OUTTT!!
+Spy_speechless01; * . . . The Spy concludes that the prisoner definitely needs some therapy.
+Spy_thonk01; * Agent Espinae notices a key card lying around like a puddle in an autumn rain.
+Spy_default; * The Spy realizes that the prisoner’s exit isn’t even locked, but Agent Espinae needs those key cards anyway.

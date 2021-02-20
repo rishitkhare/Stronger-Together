@@ -1,0 +1,21 @@
+Prisoner_default; So...you’re on the 14th floor. 
+Prisoner_lmao01; Just one more floor before you encounter Hees, the Holder of the Keys.
+Prisoner_heh01; You must’ve met the Syndicate along the way. Did you make any friends during your time here?
+Spy_wtf01; * The Spy recalls their various conversations with Syndicate members. The Spy immediately tries to repress the painfully stupid memories, but it doesn’t working. . .
+Spy_wtf03; * . . . It appears the flashbacks are quite vivid.
+Spy_wtf04; * Agent Espinae’s shades fall off. Ah. It appears their brain is rebooting.
+Prisoner_browtf02; ...Hey, you alright there? 
+Prisoner_shoot02; (Did I break them?)
+Prisoner_browtf03; (Hopefully they passed out from the absolute joy of meeting the Syndicate.)
+Spy_depress; * It appears Spy_Brain.exe has reboot successfully.
+Prisoner_default; Hey, you. You’re finally awake.
+Spy_bruh02; * ?
+Prisoner_hmm; So are you going to answer my question?
+Spy_bruh02; * . . .
+Spy_thonk04; The real treasure was not the friends we made along the way, but the satisfaction of knowing I’ll finally get to defeat Hees and get out of this god-forbidden complex.
+Prisoner_huh04; . . .
+Spy_default; * The Spy does not feel like speaking anymore, and puts their fallen shades back on.
+Prisoner_angry02; . . . I see.
+Prisoner_grr04; . . . I’m sorry to hear that.
+Spy_bruh01; * Perhaps they were too harsh.
+Spy_thonk01; * . . . It doesn’t matter.

@@ -1,0 +1,14 @@
+Prisoner_heh01; Greetings. In exchange for thy assistance with mine escape, it will be a pleasure of mine to “silence” any of the guards in thy way.
+Prisoner_lmao01; After all, thy pistol only has a single bullet, doth it not?
+Prisoner_die01; Wouldn’t want to waste it on a mere guard, would thou now? Better save it for the Holder.
+Prisoner_grr06; Do be aware that punching the living daylights out of the guards will likely attract attention from the other guards.
+Spy_thonk03; The Spy assumes that “likely” is an understatement.
+Prisoner_grr03; Unfortunately, I doth not believe I am capable of handling hordes of guards on my own.
+Spy_wtf01; * . . . !
+Spy_wtf03; * It appears this prisoner is exceptionally polite, perhaps too polite. The Spy wonders why they are this way.
+Prisoner_lmao01; Thou must be wondering for what reason my speech patterns art different from my associates.
+Prisoner_angry02; . . .
+Prisoner_blank03; I doth not wish to speak of the psychological experiments conducted by the Holder of the Keys, Hees.
+Spy_bruh02; * . . .
+Spy_thonk02; * . . .
+Spy_default; * The Spy is determined to defeat the one they call Hees.

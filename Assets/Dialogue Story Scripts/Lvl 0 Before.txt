@@ -1,0 +1,13 @@
+Prisoner_grr06; Who are you?
+Prisoner_grr02; How’d you get in here?
+Prisoner_grr03; Whatever, that doesn’t matter. 
+Prisoner_default; You’ll let me out of this miserable cell, won’t you?
+Spy_default; * The Spy assesses the Prisoner. 
+Spy_thonk01; Impolite. 
+Spy_bruh01; Annoying. 
+Spy_deep; Will be ignored.
+Prisoner_angry06; HEY! LISTEN TO ME WHEN I’M TALKING! YOU BETTER LET ME OUT!
+Spy_bruh01; * . . . Spy still thinks the prisoner is an annoying fly.
+Prisoner_angry02; . . .
+Prisoner_default; If you let me out, I’ll tell you where the Holder is. That’s why you’re here, isn’t it?
+Spy_thonk01; * . . . The Spy reluctantly decides to free the prisoner for more information on the Holder’s location.
