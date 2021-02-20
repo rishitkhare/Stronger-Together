@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9179395696356682418
+--- !u!1 &5422773771329122915
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9179395696356682416}
-  - component: {fileID: 9179395696356682419}
-  - component: {fileID: 2305454181341304095}
-  - component: {fileID: 3058595257207377362}
+  - component: {fileID: 2353611061842226895}
+  - component: {fileID: -2740333614050898834}
+  - component: {fileID: 2435832463599178430}
+  - component: {fileID: 7713422449665611059}
   m_Layer: 0
-  m_Name: Key Slot
+  m_Name: KeyCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9179395696356682416
+--- !u!4 &2353611061842226895
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9179395696356682418}
+  m_GameObject: {fileID: 5422773771329122915}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.53, y: 2.45, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &9179395696356682419
+--- !u!212 &-2740333614050898834
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9179395696356682418}
+  m_GameObject: {fileID: 5422773771329122915}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -73,53 +73,63 @@ SpriteRenderer:
   m_SortingLayerID: -1733143309
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 236609414581366556, guid: 92775271ee6fb4c8f8a9fced16f12817, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fb33be6f8be734297a717bb6bb1fa238, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.625, y: 0.75}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2305454181341304095
+--- !u!114 &2435832463599178430
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9179395696356682418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79ab026442ded6046a173baad4ce37f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  opened:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &3058595257207377362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9179395696356682418}
+  m_GameObject: {fileID: 5422773771329122915}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29f434b82db34b848940bf9286a16fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myTriggerMethod: 0
+  myTriggerMethod: 1
   Player1ObjectName: Spy
   Player2ObjectName: Prisoner
-  Player1InteractionKey: 32
-  Player2InteractionKey: 32
+  Player1InteractionKey: 0
+  Player2InteractionKey: 0
   MaxDist: 1
   DisablePlayer1: 0
-  DisablePlayer2: 1
+  DisablePlayer2: 0
   OnInteracted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7713422449665611059}
+        m_TargetAssemblyTypeName: GroundItem, Assembly-CSharp
+        m_MethodName: OnInteracted
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   Interacting: 0
+--- !u!114 &7713422449665611059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5422773771329122915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 692dc606224ba044b8f8ac9d48907607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: KeyCard
