@@ -19,6 +19,7 @@ public class EnemyScript : MonoBehaviour
     public int waitFrames;
     public int dirWait;
     public LayerMask wallLayer;
+    public LayerMask cameraLayer;
     public List<string> clothingToAlert;
 
     private Vector2Int gridPosition;
@@ -234,7 +235,7 @@ public class EnemyScript : MonoBehaviour
     {
         float strength;
         bool heard = CalculateIfHeard(noise, out strength);
-        if(heard)
+        if(heard && ! checkIfInJailCell(new Vector2(noise.x, noise.y)))
         {
             performAction(noise, strength, cause);
         }
@@ -260,6 +261,14 @@ public class EnemyScript : MonoBehaviour
             currentPathFind = new Vector3(noise.x, noise.y, strength);
             routine = false;
         }
+    }
+
+    private bool checkIfInJailCell(Vector2 position) {
+        Vector2 directionVector = position - new Vector2(transform.position.x, transform.position.y);
+        RaycastHit2D hitwall = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), directionVector.normalized, directionVector.magnitude, wallLayer);
+        RaycastHit2D camerawall = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), directionVector.normalized, directionVector.magnitude, cameraLayer);
+
+        return hitwall && ! camerawall;
     }
 
     private bool CheckLineOfSight()

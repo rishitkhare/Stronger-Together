@@ -3892,6 +3892,10 @@ PrefabInstance:
       value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 4827273241542547393, guid: 403f77611a5f6894499ed0b731569da8, type: 3}
+      propertyPath: cameraLayer.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827273241542547393, guid: 403f77611a5f6894499ed0b731569da8, type: 3}
       propertyPath: NoiseStrengthThreshold
       value: 10
       objectReference: {fileID: 0}
