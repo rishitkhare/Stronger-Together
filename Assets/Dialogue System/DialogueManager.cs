@@ -2,24 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour {
+    // Animator Hashes - these allow Unity to save processing power
+    // by converting the string to integer Animator Parameters
+    private readonly int IsOpenHash = Animator.StringToHash("DialogueIsOpen");
+    private readonly int IsSpeakingHash = Animator.StringToHash("DialogueIsSpeaking");
 
-
-    //singleton instance
+    // singleton instance
     public static DialogueManager Instance;
 
-    //Portrait sprite array
+    // Portrait sprite array
     public PortraitSpriteArray spriteArray;
 
-    //speaker and dialogue
-    public Text nameText;
-    public Text dialogueText;
+    // speaker and dialogue
+    public TMP_Text nameText;
+    public TMP_Text dialogueText;
     public Image portraitImage;
 
     // "IsOpen" is parameter controlling whether or not 
     // the dialogue box is open
-    //"Speaking" parameter indicates whether still typing or not --> if not typing, animate the arrow thing on the box
+    // "Speaking" parameter indicates whether still typing or not
+    // --> if not typing, animate the arrow thing on the box
     public Animator animator;
 
     private Queue<Dialogue> dialogueQueue;
@@ -29,7 +34,6 @@ public class DialogueManager : MonoBehaviour {
         dialogueQueue = new Queue<Dialogue>();
 
     }
-
     //This function will be called from DialogueTrigger. It will initiate a series
     // of coroutines (methods that run across multiple frames) that each type out the text for dialogue.
 
@@ -37,11 +41,11 @@ public class DialogueManager : MonoBehaviour {
 
         foreach (Dialogue dialog in dialogue) {
 
-            animator.SetBool("DialogueIsOpen", true);
-            animator.SetBool("DialogueIsSpeaking", true);
+            animator.SetBool(IsOpenHash, true);
+            animator.SetBool(IsSpeakingHash, true);
 
+            //Set the name and 
             nameText.text = dialog.name;
-
             portraitImage.sprite = dialog.portrait;
 
             dialogueQueue.Clear();
@@ -56,7 +60,7 @@ public class DialogueManager : MonoBehaviour {
     public void DisplayNextSentence() {
 
         // starting new sentence, arrow clicker begone
-        animator.SetBool("Speaking", true);
+        animator.SetBool(IsSpeakingHash, true);
 
         if (dialogueQueue.Count == 0) {
 
@@ -81,21 +85,22 @@ public class DialogueManager : MonoBehaviour {
             yield return null;
 
         }
-        // I'm not sure how yield works but basically end speaking after typing is done
+
+
         EndSpeaking();
 
     }
 
     void EndSpeaking() {
 
-        animator.SetBool("DialogueIsSpeaking", false);
+        animator.SetBool(IsSpeakingHash, false);
 
     }
 
     void CloseDialogueBox () {
 
         EndSpeaking();
-        animator.SetBool("DialogueIsOpen", false);
+        animator.SetBool(IsOpenHash, false);
 
     }
 
