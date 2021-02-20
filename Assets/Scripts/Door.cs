@@ -22,6 +22,7 @@ public class Door : MonoBehaviour
         col = gameObject.GetComponent<Collider2D>();
         cameraObstructor = transform.Find("Camera Collider").GetComponent<Collider2D>();
         anim = gameObject.GetComponent<Animator>();
+        shadow = gameObject.GetComponent<ShadowCaster2D>();
     }
 
 
