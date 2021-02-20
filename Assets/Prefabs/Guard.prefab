@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4827273241542547393}
   - component: {fileID: 4989409870895931600}
   - component: {fileID: 9092264952522928010}
+  - component: {fileID: 2776640780370058887}
   m_Layer: 0
   m_Name: Guard
   m_TagString: Untagged
@@ -151,7 +152,7 @@ MonoBehaviour:
   collisionsSetVelocityTo0: 0
   collidableLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!114 &4827273241542547393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,16 +165,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc639cd8879f42b4191e74fa3a51b051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NoiseStrengthThreshold: 0
+  NoiseStrengthThreshold: 10
   homePosition: {x: 0, y: 0}
   speed: 2
-  maxDistToWalls: 1
+  maxDistToWalls: 1.3
   PreProgrammedPath: []
-  waitFrames: 0
+  waitFrames: 250
+  dirWait: 30
   wallLayer:
     serializedVersion: 2
     m_Bits: 256
-  clothingToAlert: []
+  clothingToAlert:
+  - spy
 --- !u!114 &4989409870895931600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +199,19 @@ MonoBehaviour:
   DisablePlayer2: 0
   OnInteracted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2776640780370058887}
+        m_TargetAssemblyTypeName: NPC, Assembly-CSharp
+        m_MethodName: OnPickPocket
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   Interacting: 0
 --- !u!114 &9092264952522928010
 MonoBehaviour:
@@ -220,8 +235,33 @@ MonoBehaviour:
   DisablePlayer2: 0
   OnInteracted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2776640780370058887}
+        m_TargetAssemblyTypeName: NPC, Assembly-CSharp
+        m_MethodName: OnKO
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   Interacting: 0
+--- !u!114 &2776640780370058887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4203840902045098790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baee3a6295a0ec642bd70091d1c7910d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myClothes: guard
 --- !u!1 &7428916412126261410
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3738173177448321115}
   - component: {fileID: 7062738910876401744}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LineOfSight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,6 +319,6 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0, y: 0}
-      - {x: -1.5, y: -6}
+      - {x: -1, y: -6}
       - {x: 0, y: -6.5}
-      - {x: 1.5, y: -6}
+      - {x: 1, y: -6}

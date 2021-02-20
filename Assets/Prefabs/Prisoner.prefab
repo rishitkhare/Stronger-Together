@@ -234,7 +234,7 @@ MonoBehaviour:
   sneakNoiseReduction: 0
   sneakButton: 304
   inputVerticalName: VerticalPlayer2
-  footStepsNoise: 0
+  footStepsNoise: 5
 --- !u!114 &6958365526245371207
 MonoBehaviour:
   m_ObjectHideFlags: 0
