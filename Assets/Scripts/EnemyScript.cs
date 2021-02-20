@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     private SimpleRigidbody rb;
-    private bool hearing;
     public float NoiseStrengthThreshold;
     public Vector2 homePosition;
     public float speed;
@@ -14,6 +13,7 @@ public class EnemyScript : MonoBehaviour
     public int waitFrames;
     public LayerMask wallLayer;
     public List<string> clothingToAlert;
+
     private Vector3 currentPathFind;
     private Vector3 currentDir;
     private bool routine;
@@ -24,6 +24,7 @@ public class EnemyScript : MonoBehaviour
     private BoxCollider2D Player2Col;
     private GameObject Player1;
     private GameObject Player2;
+    private SceneTransition transition;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +47,7 @@ public class EnemyScript : MonoBehaviour
         Player2Col = GameObject.FindGameObjectWithTag("Player2").transform.Find("CameraCollider").GetComponent<BoxCollider2D>();
         Player1 = GameObject.FindGameObjectWithTag("Player1");
         Player2 = GameObject.FindGameObjectWithTag("Player2");
+        transition = GameObject.Find("SceneTransitioner").GetComponent<SceneTransition>();
     }
 
     // Update is called once per frame
@@ -75,7 +77,8 @@ public class EnemyScript : MonoBehaviour
 
         if (currentWaitFrame > 0) { currentWaitFrame--; }
 
-        if (CheckLineOfSight()) { }
+        if (CheckLineOfSight()) { transition.RestartLevel(); }
+        myLineOfSight.transform.rotation = Quaternion.AngleAxis(0, currentDir);
     }
 
     void Pathfind()
@@ -155,7 +158,7 @@ public class EnemyScript : MonoBehaviour
 
     private bool CheckLineOfSight()
     {
-        Vector2[] Player1ColliderVertices = GetVerticesOfBoxCollider(Player2Col);
+        Vector2[] Player1ColliderVertices = GetVerticesOfBoxCollider(Player1Col);
 
         foreach (Vector2 point in Player1ColliderVertices)
         {

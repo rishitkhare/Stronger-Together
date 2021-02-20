@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d54f0f378a4f4d3ca38d1940b88fa02, type: 3}
+  m_Name: PortraitSpriteArray
+  m_EditorClassIdentifier: 
+  spy_default: {fileID: 0}
+  spy_bruh01: {fileID: 0}
+  spy_bruh02: {fileID: 0}
+  spy_blah: {fileID: 0}
+  spy_thonk01: {fileID: 0}
+  spy_thonk02: {fileID: 0}
+  spy_speechless01: {fileID: 0}
+  spy_speechless02: {fileID: 0}
+  spy_thonk03: {fileID: 0}
+  spy_thonk04: {fileID: 0}
+  spy_deep: {fileID: 0}
+  spy_smile01: {fileID: 0}
+  spy_wtf01: {fileID: 0}
+  spy_wtf02: {fileID: 0}
+  spy_smile02: {fileID: 0}
+  spy_smile03: {fileID: 0}
+  spy_wtf03: {fileID: 0}
+  spy_wtf04: {fileID: 0}
+  spy_depress: {fileID: 0}
+  spy_heh: {fileID: 0}
+  spy_huh01: {fileID: 0}
+  spy_huh02: {fileID: 0}
+  prisoner_default: {fileID: 0}
+  prisoner_wait01: {fileID: 0}
+  prisoner_wait02: {fileID: 0}
+  prisoner_lmao01: {fileID: 0}
+  prisoner_die01: {fileID: 0}
+  prisoner_heh01: {fileID: 0}
+  prisoner_huh01: {fileID: 0}
+  prisoner_angry01: {fileID: 0}
+  prisoner_angry02: {fileID: 0}
+  prisoner_angry03: {fileID: 0}
+  prisoner_angry04: {fileID: 0}
+  prisoner_angry05: {fileID: 0}
+  prisoner_angry06: {fileID: 0}
+  prisoner_huh03: {fileID: 0}
+  prisoner_huh04: {fileID: 0}
+  prisoner_wtf01: {fileID: 0}
+  prisoner_wtf02: {fileID: 0}
+  prisoner_wtf03: {fileID: 0}
+  prisoner_wtf04: {fileID: 0}
+  prisoner_wtf05: {fileID: 0}
+  prisoner_frick01: {fileID: 0}
+  prisoner_frick02: {fileID: 0}
+  prisoner_ree01: {fileID: 0}
+  prisoner_ree02: {fileID: 0}
+  prisoner_ree03: {fileID: 0}
+  prisoner_ree04: {fileID: 0}
+  prisoner_ree05: {fileID: 0}
+  prisoner_ree06: {fileID: 0}
+  prisoner_ree07: {fileID: 0}
+  prisoner_browtf01: {fileID: 0}
+  prisoner_browtf02: {fileID: 0}
+  prisoner_browtf03: {fileID: 0}
+  prisoner_browtf04: {fileID: 0}
+  prisoner_browtf05: {fileID: 0}
+  prisoner_hmm: {fileID: 0}
+  prisoner_shoot01: {fileID: 0}
+  prisoner_grr01: {fileID: 0}
+  prisoner_grr02: {fileID: 0}
+  prisoner_grr03: {fileID: 0}
+  prisoner_grr04: {fileID: 0}
+  prisoner_grr05: {fileID: 0}
+  prisoner_grr06: {fileID: 0}
+  prisoner_shoot02: {fileID: 0}
+  prisoner_blank01: {fileID: 0}
+  prisoner_blank02: {fileID: 0}
+  prisoner_blank03: {fileID: 0}
+  prisoner_blank04: {fileID: 0}
+  prisoner_blank05: {fileID: 0}
+  prisoner_blank06: {fileID: 0}
+  prisoner_blank07: {fileID: 0}
+  heesPortrait: {fileID: 0}

@@ -9,23 +9,29 @@ public class DialogueManager : MonoBehaviour {
     //singleton instance
     public static DialogueManager Instance;
 
+    //Portrait sprite array
+    public PortraitSpriteArray spriteArray;
+
     //speaker and dialogue
     public Text nameText;
     public Text dialogueText;
-    public Sprite portraitSprite;
+    public Image portraitImage;
 
     // "IsOpen" is parameter controlling whether or not 
     // the dialogue box is open
     //"Speaking" parameter indicates whether still typing or not --> if not typing, animate the arrow thing on the box
     public Animator animator;
 
-    private Queue<string> sentences;
+    private Queue<Dialogue> dialogueQueue;
 
     private void Start() {
         Instance = this;
-        sentences = new Queue<string>();
+        dialogueQueue = new Queue<Dialogue>();
 
     }
+
+    //This function will be called from DialogueTrigger. It will initiate a series
+    // of coroutines (methods that run across multiple frames) that each type out the text for dialogue.
 
     public void StartDialogue(Dialogue[] dialogue) {
 
@@ -36,16 +42,12 @@ public class DialogueManager : MonoBehaviour {
 
             nameText.text = dialog.name;
 
-            portraitSprite = dialog.portrait;
+            portraitImage.sprite = dialog.portrait;
 
-            sentences.Clear();
+            dialogueQueue.Clear();
 
-            foreach (string sentence in dialog.sentences)
-            {
 
-                sentences.Enqueue(sentence);
-
-            }
+            dialogueQueue.Enqueue(dialog);
 
             DisplayNextSentence();
         }
@@ -56,16 +58,16 @@ public class DialogueManager : MonoBehaviour {
         // starting new sentence, arrow clicker begone
         animator.SetBool("Speaking", true);
 
-        if (sentences.Count == 0) {
+        if (dialogueQueue.Count == 0) {
 
             CloseDialogueBox();
             return;
 
         }
 
-        string sentence = sentences.Dequeue();
+        string typedText = dialogueQueue.Dequeue().dialogText;
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(typedText));
 
     }
 
