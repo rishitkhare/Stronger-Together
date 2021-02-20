@@ -116,8 +116,11 @@ public class EnemyScript : MonoBehaviour
         bool canGoUp = rb.RaycastYCollision(maxDistToWalls) == maxDistToWalls;
         bool canGoLeft = rb.RaycastXCollision(-1 * maxDistToWalls) == maxDistToWalls * -1;
         bool canGoDown = rb.RaycastYCollision(-1 * maxDistToWalls) == maxDistToWalls * -1;
-
-        bool[] possibleDirectionsAllowed =
+        int myPosX = (int)transform.position.x;
+        int myPosY = (int)transform.position.y;
+        int pathX = (int)currentPathFind.x;
+        int pathY = (int)currentPathFind.y;
+        /*bool[] possibleDirectionsAllowed =
         {
             canGoUp,
             canGoDown,
@@ -195,13 +198,13 @@ public class EnemyScript : MonoBehaviour
             currentWaitFrame = dirWait;
         }
 
-        currentDir = newDir;
+        currentDir = newDir; */
 
-        /*if(currentDir == Vector3.zero)
+        if(currentDir == Vector3.zero)
         {
-            if (canGoRight && (myPosX < pathX || ((myPosY < pathY && !canGoUp) && (myPosY > pathY && !canGoDown)))) 
+            if (canGoRight && (myPosX <= pathX || ((myPosY < pathY && !canGoUp) && (myPosY > pathY && !canGoDown)))) 
                 { currentDir = new Vector3(speed, 0, 0); }
-            else if (canGoLeft && (myPosX > pathX || ((myPosY < pathY && !canGoUp) && (myPosY > pathY && !canGoDown)))) 
+            else if (canGoLeft && (myPosX >= pathX || ((myPosY < pathY && !canGoUp) && (myPosY > pathY && !canGoDown)))) 
                 { currentDir = new Vector3(speed * -1, 0, 0); }
             else if (canGoUp && (myPosY < pathY || myPosX != pathX)) { currentDir = new Vector3(0, speed, 0); }
             else if (canGoDown && (myPosY > pathY || myPosX != pathX)) { currentDir = new Vector3(0, speed * -1, 0); }
@@ -225,7 +228,7 @@ public class EnemyScript : MonoBehaviour
         {
             if (!canGoDown) { currentDir = Vector3.zero; }
             else if ((canGoRight && myPosX <= pathX) || (canGoLeft && myPosX >= pathX)) { currentDir = Vector3.zero; }
-        }*/
+        }
 
         transform.position += currentDir * speed * Time.deltaTime;
     }
