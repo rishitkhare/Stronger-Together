@@ -128,10 +128,10 @@ public class EnemyScript : MonoBehaviour
         Vector2Int target = new Vector2Int(Mathf.RoundToInt(currentPathFind.x), Mathf.RoundToInt(currentPathFind.y));
         
         // snaps to grid
-        if (Mathf.Abs(transform.position.x - Mathf.RoundToInt(transform.position.x)) < 0.1) {
+        if (Mathf.Abs(transform.position.x - Mathf.RoundToInt(transform.position.x)) < 0.05f) {
             gridPosition.x = Mathf.RoundToInt(transform.position.x);
         }
-        if (Mathf.Abs(transform.position.y - Mathf.RoundToInt(transform.position.y)) < 0.1) {
+        if (Mathf.Abs(transform.position.y - Mathf.RoundToInt(transform.position.y)) < 0.05f) {
             gridPosition.y = Mathf.RoundToInt(transform.position.y);
         }
 
@@ -158,8 +158,8 @@ public class EnemyScript : MonoBehaviour
         for (int i = 0; i < possiblePositions.Length; i++) {
             possiblePositionsCosts[i] = (possiblePositions[i] - target).sqrMagnitude;
 
-            if (curDir == possiblePositions[i] - gridPosition) {
-                possiblePositionsCosts[i] *= .9f;
+            if (possiblePositions[i] - gridPosition == curDir * -1) {
+                possiblePositionsCosts[i] *= 2f;
             }
         }
 
