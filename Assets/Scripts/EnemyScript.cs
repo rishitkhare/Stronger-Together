@@ -299,6 +299,20 @@ public class EnemyScript : MonoBehaviour {
             }
         }
 
+        GameObject[] bodies = GameObject.FindGameObjectsWithTag("Body");
+        foreach (GameObject body in bodies)
+        {
+            BoxCollider2D BodyCollider = body.gameObject.GetComponent<BoxCollider2D>();
+            Vector2[] bodyColliderVertices = GetVerticesOfBoxCollider(BodyCollider);
+            foreach (Vector2 point in bodyColliderVertices)
+            {
+                if (myLineOfSight.OverlapPoint(point) && VisionToPointNotObstructed(point))
+                {
+                    return true;
+                }
+            }
+        }
+
         return false;
     }
 
