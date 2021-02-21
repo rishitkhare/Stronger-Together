@@ -16,7 +16,7 @@ public class SimpleRigidbody : MonoBehaviour {
     BoxCollider2D myCollider;
 
     // Start is called before the first frame update
-    void Start() {
+    void Awake() {
         myCollider = gameObject.GetComponent<BoxCollider2D>();
     }
 
