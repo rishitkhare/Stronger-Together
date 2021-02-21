@@ -68,18 +68,24 @@ public class DialogueManager : MonoBehaviour {
     //This function will be called from DialogueTrigger. It will initiate a series
     // of coroutines (methods that run across multiple frames) that each type out the text for dialogue.
     public void StartDialogue(Dialogue[] dialogue) {
-        OnDialogBegin.Invoke();
+        if(dialogue != null) {
+            OnDialogBegin.Invoke();
 
-        animator.SetBool(IsOpenHash, true);
+            animator.SetBool(IsOpenHash, true);
 
-        dialogueQueue.Clear();
+            dialogueQueue.Clear();
 
-        foreach (Dialogue dialog in dialogue) {
-            dialog.Parse();
-            dialogueQueue.Enqueue(dialog);
+            foreach (Dialogue dialog in dialogue) {
+                dialog.Parse();
+                dialogueQueue.Enqueue(dialog);
+            }
+
+            DisplayNextSentence();
         }
-
-        DisplayNextSentence();
+        else if (LoadNextSceneOnDialogueEnd) {
+            d_trigger.enabled = false;
+            transition.GoToNextLevel();
+        }
     }
 
     public void DisplayNextSentence() {

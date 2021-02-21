@@ -60,6 +60,7 @@ public class DialogueTrigger : MonoBehaviour {
     }
 
     public void PlayStartingDialogue() {
+        Debug.Log("Play start");
         // don't replay the same dialogue
         if (DialogueDataCrossSceneStorage.Instance != null && !DialogueDataCrossSceneStorage.Instance.CurrentStartDialogueRead()) {
             DialogueDataCrossSceneStorage.Instance.AlreadyHeardStart();

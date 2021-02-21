@@ -36,8 +36,9 @@ public class PlayerScript : MonoBehaviour
 
 
     void Update() {
-
-        cardCount.text = $"{Inventory.Count}";
+        if(cardCount != null) {
+            cardCount.text = $"x{Inventory.Count}";
+        }
 
         if (IsPunching) {
             anim.SetBool(punchHash, true);
