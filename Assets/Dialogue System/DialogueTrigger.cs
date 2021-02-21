@@ -15,19 +15,38 @@ public class DialogueTrigger : MonoBehaviour {
 
     private void Start()
     {
-        buildArray(BeforeText, out BeforeDialogue);
+
+        //avoids nullReference shenanigans
+        if(BeforeText != null) {
+            buildArray(BeforeText, out BeforeDialogue);
+        }
+
         if(AfterText != null)
         {
             buildArray(AfterText, out AfterDialogue);
         }
 
-        DialogueManager.Instance.StartDialogue(BeforeDialogue);
-        waitForTrigger();
+        PlayStartingDialogue();
     }
 
     private void Update()
     {
+        if(DialogueManager.Instance != null) {
 
+
+            if(Input.GetKeyDown(advanceTextKey) && !DialogueManager.Instance.IsTyping) {
+                DialogueManager.Instance.DisplayNextSentence();
+            }
+
+            if(DialogueManager.Instance.IsTyping) {
+                if(Input.GetKey(advanceTextKey)) {
+                    DialogueManager.Instance.IsFaster = true;
+                }
+                else {
+                    DialogueManager.Instance.IsFaster = false;
+                }
+            }
+        }
     }
 
     private void buildArray(TextAsset file, out Dialogue[] output)
@@ -40,16 +59,19 @@ public class DialogueTrigger : MonoBehaviour {
         }
     }
 
-    private void waitForTrigger()
-    {
-        bool success = true;
-        while(success)
-        {
-            if(Input.GetKeyDown(advanceTextKey))
-            {
-                DialogueManager.Instance.DisplayNextSentence(out success);
-            }
+    public void PlayStartingDialogue() {
+        // don't replay the same dialogue
+        if (DialogueDataCrossSceneStorage.Instance != null && !DialogueDataCrossSceneStorage.Instance.CurrentStartDialogueRead()) {
+            DialogueDataCrossSceneStorage.Instance.AlreadyHeardStart();
+            DialogueManager.Instance.StartDialogue(BeforeDialogue);
         }
     }
 
+    public void PlayLevelEndDialogue() {
+        // don't replay the same dialogue
+        if(DialogueDataCrossSceneStorage.Instance != null && !DialogueDataCrossSceneStorage.Instance.CurrentEndDialogueRead()) {
+            DialogueDataCrossSceneStorage.Instance.AlreadyHeardEndDialogue();
+            DialogueManager.Instance.StartDialogue(AfterDialogue);
+        }
+    }
 }

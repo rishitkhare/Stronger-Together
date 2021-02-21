@@ -207,7 +207,7 @@ MonoBehaviour:
   Speed: 4
   inputHorizontalName: Horizontal
   sneakFactor: 2
-  sneakNoiseReduction: 5
+  sneakNoiseReduction: 2
   sneakButton: 110
   inputVerticalName: Vertical
   footStepsNoise: 15
