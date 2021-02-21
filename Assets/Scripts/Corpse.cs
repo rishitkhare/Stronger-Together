@@ -20,14 +20,15 @@ public class Corpse : MonoBehaviour
     {
         if(isBeingPulled && (pulling.gameObject.GetComponent<SimpleRigidbody>().GetVelocity().x != 0 || pulling.gameObject.GetComponent<SimpleRigidbody>().GetVelocity().y != 0))
         {
-            float myVelx = pulling.gameObject.GetComponent<SimpleRigidbody>().GetVelocity().x * Math.Abs(dir.x);
-            float myVely = pulling.gameObject.GetComponent<SimpleRigidbody>().GetVelocity().y * Math.Abs(dir.y);
+            float myVelx = pulling.gameObject.GetComponent<SimpleRigidbody>().GetVelocity().x * Math.Abs(dir.x) * Time.deltaTime;
+            float myVely = pulling.gameObject.GetComponent<SimpleRigidbody>().GetVelocity().y * Math.Abs(dir.y) * Time.deltaTime;
             transform.position += new Vector3(myVelx, myVely, 0);
         }
     }
 
     public void OnPullingStart(GameObject other)
     {
+        Debug.Log("pulling start");
         isBeingPulled = true;
         if(other.transform.position.x > transform.position.x)
         {
@@ -43,7 +44,7 @@ public class Corpse : MonoBehaviour
         }
         else if(other.transform.position.x <= transform.position.x)
         {
-            if (Math.Abs(other.transform.position.y - transform.position.y) > other.transform.position.x - transform.position.x)
+            if (Math.Abs(other.transform.position.y - transform.position.y) > Math.Abs(other.transform.position.x - transform.position.x))
             {
                 if (other.transform.position.y - transform.position.y < 0) { dir = new Vector2(0, -1); }
                 else { dir = new Vector2(0, 1); }
@@ -58,6 +59,7 @@ public class Corpse : MonoBehaviour
 
     public void OnPullingEnd(GameObject other)
     {
+        Debug.Log("pulling end");
         isBeingPulled = false;
         pulling = null;
     }

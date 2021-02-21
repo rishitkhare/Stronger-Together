@@ -6,9 +6,12 @@ public class NPC : MonoBehaviour
 {
     public string ItemHeld { get; set; }
     public string myClothes;
+    public GameObject BodyPrefab;
+    private Animator anim;
+    private int IsKOHash = Animator.StringToHash("IsKOed");
     void Start()
     {
-
+        anim = gameObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -27,15 +30,13 @@ public class NPC : MonoBehaviour
 
     public void OnKO(GameObject prisoner)
     {
-        GameObject myCorpse = new GameObject();
-        myCorpse.AddComponent<Corpse>();
-        myCorpse.transform.position = transform.position;
+        anim.SetBool(IsKOHash, true);
+        Instantiate(BodyPrefab, transform.position, Quaternion.identity);
         if (ItemHeld != null) 
         {
             prisoner.GetComponent<PlayerScript>().addItem(ItemHeld);
             ItemHeld = null;
         }
-        myCorpse.GetComponent<Corpse>().setClothing(myClothes);
         Destroy(gameObject);
     }
 }

@@ -123,10 +123,10 @@ public class EnemyScript : MonoBehaviour {
         //if not at current node, and close to another node
         bool output = (roundedPos != gridPosition) && IsAtNode();
 
-        if(output) {
+        /*if(output) {
             Debug.Log("NEW Node!");
             Debug.Log(string.Format("Current path find: {0}", currentPathFind));
-        }
+        }*/
 
         return output;
 

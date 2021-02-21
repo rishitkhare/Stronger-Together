@@ -231,10 +231,10 @@ MonoBehaviour:
   Speed: 4
   inputHorizontalName: HorizontalPlayer2
   sneakFactor: 2
-  sneakNoiseReduction: 0
+  sneakNoiseReduction: 5
   sneakButton: 304
   inputVerticalName: VerticalPlayer2
-  footStepsNoise: 18
+  footStepsNoise: 15
 --- !u!114 &6958365526245371207
 MonoBehaviour:
   m_ObjectHideFlags: 0
