@@ -10,6 +10,12 @@ public class Corpse : MonoBehaviour
     Vector2 dir;
     Vector2 velocity;
     string clothing;
+
+    private readonly int startDragHash = Animator.StringToHash("IsStartDragging");
+    private readonly int dragHash = Animator.StringToHash("IsDragging");
+    private readonly int endDragHash = Animator.StringToHash("IsEndDragging");
+
+
     void Start()
     {
         pulling = null;
@@ -28,6 +34,11 @@ public class Corpse : MonoBehaviour
 
     public void OnPullingStart(GameObject other)
     {
+        Animator anim = other.gameObject.GetComponent<Animator>();
+
+        anim.SetBool(startDragHash, true);
+        other.gameObject.GetComponent<PlayerScript>().IsDragging = true; 
+
         Debug.Log("pulling start");
         isBeingPulled = true;
         if(other.transform.position.x > transform.position.x)
@@ -59,7 +70,10 @@ public class Corpse : MonoBehaviour
 
     public void OnPullingEnd(GameObject other)
     {
-        Debug.Log("pulling end");
+        Animator anim = other.gameObject.GetComponent<Animator>();
+
+        other.gameObject.GetComponent<PlayerScript>().IsDragging = false;
+        anim.SetBool(endDragHash, true);
         isBeingPulled = false;
         pulling = null;
     }

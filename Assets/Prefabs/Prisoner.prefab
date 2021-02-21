@@ -231,7 +231,7 @@ MonoBehaviour:
   Speed: 4
   inputHorizontalName: HorizontalPlayer2
   sneakFactor: 2
-  sneakNoiseReduction: 5
+  sneakNoiseReduction: 2
   sneakButton: 304
   inputVerticalName: VerticalPlayer2
   footStepsNoise: 15
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c023b3ad6bced84ba2ee87a61832b05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: 0
+  character: 1
 --- !u!95 &6958365526245371208
 Animator:
   serializedVersion: 3

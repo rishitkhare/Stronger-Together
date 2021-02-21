@@ -262,6 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myClothes: guard
+  BodyPrefab: {fileID: 0}
 --- !u!1 &7428916412126261410
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +319,7 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0}
-      - {x: -1, y: -6}
-      - {x: 0, y: -6.5}
-      - {x: 1, y: -6}
+    - - {x: 0, y: 0.5}
+      - {x: -2, y: -7}
+      - {x: 0, y: -8}
+      - {x: 2, y: -7}
