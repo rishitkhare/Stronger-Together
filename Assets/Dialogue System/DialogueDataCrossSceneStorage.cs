@@ -25,10 +25,8 @@ public class DialogueDataCrossSceneStorage : MonoBehaviour
             Destroy(gameObject);
         }
 
-        StartDialoguesRead = new bool[SceneManager.sceneCount];
-        EndDialoguesRead = new bool[SceneManager.sceneCount];
-
-        Debug.Log(StartDialoguesRead[0]);
+        StartDialoguesRead = new bool[SceneManager.sceneCountInBuildSettings];
+        EndDialoguesRead = new bool[SceneManager.sceneCountInBuildSettings];
     }
 
     // Marks the current scene's starting dialogue as already heard.
@@ -38,7 +36,6 @@ public class DialogueDataCrossSceneStorage : MonoBehaviour
 
     // Marks the current scene's ending dialogue as already heard.
     public void AlreadyHeardEndDialogue() {
-        Debug.Log("read it");
         EndDialoguesRead[SceneManager.GetActiveScene().buildIndex] = true;
     }
 
