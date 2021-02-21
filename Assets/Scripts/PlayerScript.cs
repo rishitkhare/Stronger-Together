@@ -9,17 +9,34 @@ public class PlayerScript : MonoBehaviour
     private List<string> Inventory;
     private string myClothing;
     //public GameObject myWinCondition;
+
+    private Animator anim;
+
+    public bool IsDragging { get; set; }
+    private readonly int dragHash = Animator.StringToHash("IsDragging");
+
+    public bool IsPunching { get; set; }
+    private readonly int punchHash = Animator.StringToHash("IsPunching");
+
     void Start()
     {
         Inventory = new List<string>();
         if (character == Role.spy) { myClothing = "spy"; }
         else { myClothing = "prisoner"; }
+
+        anim = gameObject.GetComponent<Animator>();
     }
 
     
     void Update()
     {
-        
+        if (IsPunching) {
+            anim.SetBool(punchHash, true);
+        }
+
+        if (IsDragging) {
+            anim.SetBool(dragHash, true);
+        }
     }
 
     public void changeClothing(string newClothes)

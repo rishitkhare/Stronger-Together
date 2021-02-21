@@ -12,6 +12,8 @@ public class PlayerMovementController : MonoBehaviour
     public KeyCode sneakButton;
     public string inputVerticalName;
 
+    private bool lockPlayerMovement;
+
     SimpleRigidbody collisionHandler;
     Animator anim;
     SpriteRenderer sp;
@@ -28,6 +30,18 @@ public class PlayerMovementController : MonoBehaviour
     public float footStepsNoise;
     [HideInInspector]
     public bool IsInteractingWithComputer { get; set; }
+
+    #region Event Methods
+    public void LockMovement() {
+        lockPlayerMovement = true;
+    }
+
+    public void UnlockMovement() {
+        lockPlayerMovement = false;
+    }
+
+    #endregion Event Methods
+
     void Start()
     {
         collisionHandler = gameObject.GetComponent<SimpleRigidbody>();
@@ -43,7 +57,11 @@ public class PlayerMovementController : MonoBehaviour
         input.Normalize();
         float sneaknoise = 0;
 
-        if(!IsInteractingWithComputer)
+        // We probably should've just used the one lockPlayerMovement boolean,
+        // but I'm afraid of what I'm gonna break
+        //
+        // - Rishu
+        if(!lockPlayerMovement && !IsInteractingWithComputer)
         {
             if (Input.GetKey(sneakButton))
             {
@@ -61,11 +79,10 @@ public class PlayerMovementController : MonoBehaviour
             AnimateCharacter(input);
         }
         else {
-            //animator is no longer moving
+            //do not retain velocity once locked
             anim.SetBool(isMovingHash, false);
+            collisionHandler.SetVelocity(Vector2.zero);
         }
-
-        if (IsInteractingWithComputer) { collisionHandler.SetVelocity(Vector2.zero); }
     }
 
     private void AnimateCharacter(Vector2 input)
