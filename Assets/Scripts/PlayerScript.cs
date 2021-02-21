@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -12,6 +14,9 @@ public class PlayerScript : MonoBehaviour
 
     private Animator anim;
 
+    private Canvas UI;
+    public TMP_Text cardCount;
+
     public bool IsDragging { get; set; }
     private readonly int dragHash = Animator.StringToHash("IsDragging");
 
@@ -20,6 +25,8 @@ public class PlayerScript : MonoBehaviour
 
     void Start()
     {
+        UI = gameObject.GetComponent<Canvas>();
+
         Inventory = new List<string>();
         if (character == Role.spy) { myClothing = "spy"; }
         else { myClothing = "prisoner"; }
@@ -27,9 +34,11 @@ public class PlayerScript : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
     }
 
-    
-    void Update()
-    {
+
+    void Update() {
+
+        cardCount.text = $"{Inventory.Count}";
+
         if (IsPunching) {
             anim.SetBool(punchHash, true);
         }
