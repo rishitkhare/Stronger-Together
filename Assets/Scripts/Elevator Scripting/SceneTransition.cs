@@ -38,6 +38,7 @@ public class SceneTransition : MonoBehaviour {
         else if(!nextLevel && greenElevator.IsOpen && purpleElevator.IsOpen) {
             GoToNextLevel();
         }
+
         if(nextLevel) {
             LevelEnd();
         }
