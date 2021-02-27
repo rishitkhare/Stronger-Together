@@ -265,7 +265,7 @@ public class EnemyScript : MonoBehaviour {
     }
 
     private void performAction(Vector3 noise, float strength, GameObject source) {
-        if (currentPathFind.z <= strength && source.GetComponent<PlayerScript>().wearing() == "spy") {
+        if (currentPathFind.z <= strength && clothingToAlert.Contains(source.GetComponent<PlayerScript>().wearing())) {
             currentPathFind = new Vector3(noise.x, noise.y, strength);
             routine = false;
         }
