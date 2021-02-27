@@ -32,11 +32,7 @@ public class NPC : MonoBehaviour
     {
         anim.SetBool(IsKOHash, true);
         Instantiate(BodyPrefab, transform.position, Quaternion.identity);
-        if (ItemHeld != null) 
-        {
-            prisoner.GetComponent<PlayerScript>().addItem(ItemHeld);
-            ItemHeld = null;
-        }
+        OnPickPocket(prisoner);
         Destroy(gameObject);
     }
 }
