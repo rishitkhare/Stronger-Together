@@ -264,7 +264,7 @@ MonoBehaviour:
   speed: 2
   maxDistToWalls: 1.3
   PreProgrammedPath: []
-  waitFrames: 300
+  waitFrames: 120
   dirWait: 120
   wallLayer:
     serializedVersion: 2
